@@ -419,7 +419,8 @@
             <div class="carousel-testimony owl-carousel ftco-owl">
               <div class="item">
                 <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: <?= base_url('assets/customer/images/person_1.jpg') ?>">
+                  <div class="user-img mb-2"
+                      style="background-image: url('<?= base_url('assets/customer/images/person_1.jpg') ?>');">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -430,7 +431,8 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: <?= base_url('assets/customer/images/person_2.jpg') ?>">
+                  <div class="user-img mb-2"
+                      style="background-image: url('<?= base_url('assets/customer/images/person_2.jpg') ?>');">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -441,7 +443,8 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: <?= base_url('assets/customer/images/person_3.jpg') ?>">
+                  <div class="user-img mb-2"
+                      style="background-image: url('<?= base_url('assets/customer/images/person_3.jpg') ?>');">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -452,7 +455,8 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: <?= base_url('assets/customer/images/person_1.jpg') ?>">
+                  <div class="user-img mb-2"
+                      style="background-image: url('<?= base_url('assets/customer/images/person_4.jpg') ?>');">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -463,7 +467,9 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: <?= base_url('assets/customer/images/person_1.jpg') ?>">
+                  <div class="user-img mb-2"
+                      style="background-image: url('<?= base_url('assets/customer/images/person_5.jpg') ?>');">
+                  </div>
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
