@@ -185,138 +185,109 @@
     				<div class="carousel-car owl-carousel">
     					<div class="item">
                             <div class="car-wrap rounded ftco-animate">
-
                                 <div class="img rounded d-flex align-items-end"
                                     style="background-image: url('<?= base_url('assets/customer/images/car-1.jpg') ?>');">
                                 </div>
-
                                 <div class="text">
-
                                     <h2 class="mb-0">
                                         <a href="#">Mercedes Grand Sedan</a>
                                     </h2>
-
                                     <div class="d-flex mb-3">
                                         <span class="cat">Tersedia</span>
                                         <p class="price ml-auto">
                                             Rp500.000 <span>/hari</span>
                                         </p>
                                     </div>
-
                                     <p class="d-flex mb-0 d-block">
                                         <a href="<?= base_url('customer/penyewaan') ?>" class="btn btn-primary py-2 mr-1">
                                             Sewa
                                         </a>
-
                                         <a href="<?= base_url('customer/kendaraan') ?>" class="btn btn-secondary py-2 ml-1">
                                             Detail
                                         </a>
                                     </p>
-
                                 </div>
-
                             </div>
                         </div>
-    					<div class="item">
-                        <div class="car-wrap rounded ftco-animate">
 
-                            <div class="img rounded d-flex align-items-end"
-                                style="background-image: url('<?= base_url('assets/customer/images/car-2.jpg') ?>');">
-                            </div>
-
-                            <div class="text">
-
-                                <h2 class="mb-0">
-                                    <a href="#">Mercedes Grand Sedan</a>
-                                </h2>
-
-                                <div class="d-flex mb-3">
-                                    <span class="cat">Tersedia</span>
-                                    <p class="price ml-auto">
-                                        Rp500.000 <span>/hari</span>
-                                    </p>
-                                </div>
-
-                                <p class="d-flex mb-0 d-block">
-                                    <a href="<?= base_url('customer/penyewaan') ?>" class="btn btn-primary py-2 mr-1">
-                                        Sewa
-                                    </a>
-                                    <a href="<?= base_url('customer/kendaraan') ?>" class="btn btn-secondary py-2 ml-1">
-                                        Detail
-                                    </a>
-                                </p>
-
-                            </div>
-
-                        </div>
-                    </div>
     					<div class="item">
                             <div class="car-wrap rounded ftco-animate">
+                                <div class="img rounded d-flex align-items-end"
+                                    style="background-image: url('<?= base_url('assets/customer/images/car-2.jpg') ?>');">
+                                </div>
+                                <div class="text">
+                                    <h2 class="mb-0">
+                                        <a href="#">Mercedes Grand Sedan</a>
+                                    </h2>
+                                    <div class="d-flex mb-3">
+                                        <span class="cat">Tersedia</span>
+                                        <p class="price ml-auto">
+                                            Rp500.000 <span>/hari</span>
+                                        </p>
+                                    </div>
+                                    <p class="d-flex mb-0 d-block">
+                                        <a href="<?= base_url('customer/penyewaan') ?>" class="btn btn-primary py-2 mr-1">
+                                            Sewa
+                                        </a>
+                                        <a href="<?= base_url('customer/kendaraan') ?>" class="btn btn-secondary py-2 ml-1">
+                                            Detail
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
+    					<div class="item">
+                            <div class="car-wrap rounded ftco-animate">
                                 <div class="img rounded d-flex align-items-end"
                                     style="background-image: url('<?= base_url('assets/customer/images/car-3.jpg') ?>');">
                                 </div>
-
                                 <div class="text">
-
                                     <h2 class="mb-0">
                                         <a href="#">Mercedes Grand Sedan</a>
                                     </h2>
-
                                     <div class="d-flex mb-3">
                                         <span class="cat">Tersedia</span>
                                         <p class="price ml-auto">
                                             Rp500.000 <span>/hari</span>
                                         </p>
                                     </div>
-
                                     <p class="d-flex mb-0 d-block">
                                         <a href="<?= base_url('customer/penyewaan') ?>" class="btn btn-primary py-2 mr-1">
                                             Sewa
                                         </a>
-
                                         <a href="<?= base_url('customer/kendaraan') ?>" class="btn btn-secondary py-2 ml-1">
                                             Detail
                                         </a>
                                     </p>
-
                                 </div>
-
                             </div>
                         </div>
+
     					<div class="item">
                             <div class="car-wrap rounded ftco-animate">
-
                                 <div class="img rounded d-flex align-items-end"
                                     style="background-image: url('<?= base_url('assets/customer/images/car-4.jpg') ?>');">
                                 </div>
-
                                 <div class="text">
-
                                     <h2 class="mb-0">
                                         <a href="#">Mercedes Grand Sedan</a>
                                     </h2>
-
                                     <div class="d-flex mb-3">
                                         <span class="cat">Tersedia</span>
-
                                         <p class="price ml-auto">
                                             Rp500.000 <span>/hari</span>
                                         </p>
                                     </div>
-
                                     <p class="d-flex mb-0 d-block">
                                         <a href="<?= base_url('customer/penyewaan') ?>" class="btn btn-primary py-2 mr-1">
                                             Sewa
                                         </a>
-
                                         <a href="<?= base_url('customer/kendaraan') ?>" class="btn btn-secondary py-2 ml-1">
                                             Detail
                                         </a>
                                     </p>
-
                                 </div>
-
                             </div>
                         </div>
     				</div>
@@ -328,13 +299,14 @@
     <section class="ftco-section ftco-about">
 			<div class="container">
 				<div class="row no-gutters">
-					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: <?= base_url('assets/customer/images/about.jpg') ?>">
+					<!-- FIX: tambahkan url() wrapper pada background-image -->
+					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center"
+     					style="background-image: url('<?= base_url('assets/customer/images/about.jpg') ?>');">
 					</div>
 					<div class="col-md-6 wrap-about ftco-animate">
 	          <div class="heading-section heading-section-white pl-md-5">
 	          	<span class="subheading">About us</span>
 	            <h2 class="mb-4">Welcome to Carbook</h2>
-
 	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 	            <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 	            <p><a href="#" class="btn btn-primary py-3 px-4">Search Vehicle</a></p>
@@ -393,7 +365,8 @@
 			</div>
 		</section>
 
-		<section class="ftco-section ftco-intro" style="background-image: <?= base_url('assets/customer/images/bg_3.jpg') ?>">
+		<section class="ftco-section ftco-intro"
+    	style="background-image: url('<?= base_url('assets/customer/images/bg_3.jpg') ?>');">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row justify-content-end">
@@ -470,7 +443,6 @@
                   <div class="user-img mb-2"
                       style="background-image: url('<?= base_url('assets/customer/images/person_5.jpg') ?>');">
                   </div>
-                  </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                     <p class="name">Roger Scott</p>
@@ -483,46 +455,6 @@
         </div>
       </div>
     </section>
-
-    <section class="ftco-counter ftco-section img bg-light" id="section-counter">
-			<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row">
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="60">0</strong>
-                <span>Year <br>Experienced</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="1090">0</strong>
-                <span>Total <br>Cars</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="2590">0</strong>
-                <span>Happy <br>Customers</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text d-flex align-items-center">
-                <strong class="number" data-number="67">0</strong>
-                <span>Total <br>Branches</span>
-              </div>
-            </div>
-          </div>
-        </div>
-    	</div>
-    </section>	
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
@@ -577,37 +509,31 @@
         </div>
         <div class="row">
           <div class="col-md-12 text-center">
-
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
           </div>
         </div>
       </div>
     </footer>
-    
-  
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
   <script src="<?= base_url('assets/customer/js/jquery.min.js') ?>"></script>
   <script src="<?= base_url('assets/customer/js/jquery-migrate-3.0.1.min.js') ?>"></script>
   <script src="<?= base_url('assets/customer/js/popper.min.js') ?>"></script>
-<script src="<?= base_url('assets/customer/js/bootstrap.min.js') ?>"></script>
-<script src="<?= base_url('assets/customer/js/jquery.easing.1.3.js') ?>"></script>
-<script src="<?= base_url('assets/customer/js/jquery.waypoints.min.js') ?>"></script>
-<script src="<?= base_url('assets/customer/js/jquery.stellar.min.js') ?>"></script>
-<script src="<?= base_url('assets/customer/js/owl.carousel.min.js') ?>"></script>
-<script src="<?= base_url('assets/customer/js/jquery.magnific-popup.min.js') ?>"></script>
-<script src="<?= base_url('assets/customer/js/aos.js') ?>"></script>
-<script src="<?= base_url('assets/customer/js/jquery.animateNumber.min.js') ?>"></script>
-<script src="<?= base_url('assets/customer/js/bootstrap-datepicker.js') ?>"></script>
-<script src="<?= base_url('assets/customer/js/jquery.timepicker.min.js') ?>"></script>
-<script src="<?= base_url('assets/customer/js/scrollax.min.js') ?>"></script>
-<script src="<?= base_url('assets/customer/js/google-map.js') ?>"></script>
-<script src="<?= base_url('assets/customer/js/main.js') ?>"></script>
+  <script src="<?= base_url('assets/customer/js/bootstrap.min.js') ?>"></script>
+  <script src="<?= base_url('assets/customer/js/jquery.easing.1.3.js') ?>"></script>
+  <script src="<?= base_url('assets/customer/js/jquery.waypoints.min.js') ?>"></script>
+  <script src="<?= base_url('assets/customer/js/jquery.stellar.min.js') ?>"></script>
+  <script src="<?= base_url('assets/customer/js/owl.carousel.min.js') ?>"></script>
+  <script src="<?= base_url('assets/customer/js/jquery.magnific-popup.min.js') ?>"></script>
+  <script src="<?= base_url('assets/customer/js/aos.js') ?>"></script>
+  <script src="<?= base_url('assets/customer/js/jquery.animateNumber.min.js') ?>"></script>
+  <script src="<?= base_url('assets/customer/js/bootstrap-datepicker.js') ?>"></script>
+  <script src="<?= base_url('assets/customer/js/jquery.timepicker.min.js') ?>"></script>
+  <script src="<?= base_url('assets/customer/js/scrollax.min.js') ?>"></script>
+  <script src="<?= base_url('assets/customer/js/google-map.js') ?>"></script>
+  <script src="<?= base_url('assets/customer/js/main.js') ?>"></script>
     
   </body>
 </html>
