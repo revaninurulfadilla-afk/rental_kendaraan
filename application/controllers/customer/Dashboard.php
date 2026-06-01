@@ -7,6 +7,8 @@ class Dashboard extends CI_Controller {
     {
         parent::__construct();
 
+        $this->load->model('Dashboard_model');
+
         if(!$this->session->userdata('login')){
             redirect('auth');
         }
@@ -14,6 +16,9 @@ class Dashboard extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('customer/dashboard');
+        $data['kendaraan'] = $this->Dashboard_model->get_kendaraan();
+
+        $this->load->view('customer/dashboard', $data);
     }
+
 }

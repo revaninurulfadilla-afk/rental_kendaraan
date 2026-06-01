@@ -43,25 +43,25 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a href="<?= base_url('customer/dashboard') ?>" class="nav-link">
+                    <a href="<?= base_url('index.php/customer/dashboard') ?>" class="nav-link">
                         Dashboard
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="<?= base_url('customer/kendaraan') ?>" class="nav-link">
+                    <a href="<?= base_url('index.php/customer/kendaraan') ?>" class="nav-link">
                         Kendaraan
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="<?= base_url('customer/penyewaan') ?>" class="nav-link">
+                    <a href="<?= base_url('index.php/customer/penyewaan') ?>" class="nav-link">
                         Penyewaan Saya
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="<?= base_url('customer/pembayaran') ?>" class="nav-link">
+                    <a href="<?= base_url('index.php/customer/pembayaran') ?>" class="nav-link">
                         Pembayaran
                     </a>
                 </li>
@@ -183,113 +183,58 @@
     		<div class="row">
     			<div class="col-md-12">
     				<div class="carousel-car owl-carousel">
-    					<div class="item">
-                            <div class="car-wrap rounded ftco-animate">
-                                <div class="img rounded d-flex align-items-end"
-                                    style="background-image: url('<?= base_url('assets/customer/images/car-1.jpg') ?>');">
-                                </div>
-                                <div class="text">
-                                    <h2 class="mb-0">
-                                        <a href="#">Mercedes Grand Sedan</a>
-                                    </h2>
-                                    <div class="d-flex mb-3">
-                                        <span class="cat">Tersedia</span>
-                                        <p class="price ml-auto">
-                                            Rp500.000 <span>/hari</span>
-                                        </p>
-                                    </div>
-                                    <p class="d-flex mb-0 d-block">
-                                        <a href="<?= base_url('customer/penyewaan') ?>" class="btn btn-primary py-2 mr-1">
-                                            Sewa
-                                        </a>
-                                        <a href="<?= base_url('customer/kendaraan') ?>" class="btn btn-secondary py-2 ml-1">
-                                            Detail
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+    					<?php foreach($kendaraan as $k){ ?>
 
-    					<div class="item">
-                            <div class="car-wrap rounded ftco-animate">
-                                <div class="img rounded d-flex align-items-end"
-                                    style="background-image: url('<?= base_url('assets/customer/images/car-2.jpg') ?>');">
-                                </div>
-                                <div class="text">
-                                    <h2 class="mb-0">
-                                        <a href="#">Mercedes Grand Sedan</a>
-                                    </h2>
-                                    <div class="d-flex mb-3">
-                                        <span class="cat">Tersedia</span>
-                                        <p class="price ml-auto">
-                                            Rp500.000 <span>/hari</span>
-                                        </p>
-                                    </div>
-                                    <p class="d-flex mb-0 d-block">
-                                        <a href="<?= base_url('customer/penyewaan') ?>" class="btn btn-primary py-2 mr-1">
-                                            Sewa
-                                        </a>
-                                        <a href="<?= base_url('customer/kendaraan') ?>" class="btn btn-secondary py-2 ml-1">
-                                            Detail
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+              <div class="item">
+                  <div class="car-wrap rounded ftco-animate">
 
-    					<div class="item">
-                            <div class="car-wrap rounded ftco-animate">
-                                <div class="img rounded d-flex align-items-end"
-                                    style="background-image: url('<?= base_url('assets/customer/images/car-3.jpg') ?>');">
-                                </div>
-                                <div class="text">
-                                    <h2 class="mb-0">
-                                        <a href="#">Mercedes Grand Sedan</a>
-                                    </h2>
-                                    <div class="d-flex mb-3">
-                                        <span class="cat">Tersedia</span>
-                                        <p class="price ml-auto">
-                                            Rp500.000 <span>/hari</span>
-                                        </p>
-                                    </div>
-                                    <p class="d-flex mb-0 d-block">
-                                        <a href="<?= base_url('customer/penyewaan') ?>" class="btn btn-primary py-2 mr-1">
-                                            Sewa
-                                        </a>
-                                        <a href="<?= base_url('customer/kendaraan') ?>" class="btn btn-secondary py-2 ml-1">
-                                            Detail
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                      <div class="img rounded d-flex align-items-end"
+                          style="background-image: url('<?= base_url('assets/customer/images/'.$k->gambar) ?>');">
+                      </div>
 
-    					<div class="item">
-                            <div class="car-wrap rounded ftco-animate">
-                                <div class="img rounded d-flex align-items-end"
-                                    style="background-image: url('<?= base_url('assets/customer/images/car-4.jpg') ?>');">
-                                </div>
-                                <div class="text">
-                                    <h2 class="mb-0">
-                                        <a href="#">Mercedes Grand Sedan</a>
-                                    </h2>
-                                    <div class="d-flex mb-3">
-                                        <span class="cat">Tersedia</span>
-                                        <p class="price ml-auto">
-                                            Rp500.000 <span>/hari</span>
-                                        </p>
-                                    </div>
-                                    <p class="d-flex mb-0 d-block">
-                                        <a href="<?= base_url('customer/penyewaan') ?>" class="btn btn-primary py-2 mr-1">
-                                            Sewa
-                                        </a>
-                                        <a href="<?= base_url('customer/kendaraan') ?>" class="btn btn-secondary py-2 ml-1">
-                                            Detail
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                      <div class="text">
+
+                          <h2 class="mb-0">
+                              <a href="#">
+                                  <?= $k->merk ?>
+                              </a>
+                          </h2>
+
+                          <div class="d-flex mb-3">
+
+                              <span class="cat">
+                                  <?= $k->status_ketersediaan ?>
+                              </span>
+
+                              <p class="price ml-auto">
+                                  Rp<?= number_format($k->harga_sewa,0,',','.') ?>
+                                  <span>/hari</span>
+                              </p>
+
+                          </div>
+
+                          <p class="d-flex mb-0 d-block">
+
+                              <a href="<?= base_url('customer/penyewaan/sewa/'.$k->id_kendaraan) ?>"
+                                class="btn btn-primary py-2 mr-1">
+                                  Sewa
+                              </a>
+
+                              <a href="<?= base_url('customer/kendaraan/detail/'.$k->id_kendaraan) ?>"
+                                class="btn btn-secondary py-2 ml-1">
+                                  Detail
+                              </a>
+
+                          </p>
+
+                      </div>
+
+                  </div>
+              </div>
+
+              <?php } ?>
+
+    					
     				</div>
     			</div>
     		</div>
