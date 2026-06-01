@@ -22,11 +22,9 @@ class Kendaraan extends CI_Controller {
     }
     public function detail($id)
 {
-    $data['kendaraan'] =
-        $this->db->get_where(
-            'kendaraan',
-            ['id_kendaraan' => $id]
-        )->row();
+    $data['kendaraan'] = $this->Kendaraan_model->detail($id);
+     $data['related'] = $this->Kendaraan_model->get_all();
+
 
     $this->load->view('customer/detail_kendaraan', $data);
 }

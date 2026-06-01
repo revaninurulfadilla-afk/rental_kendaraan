@@ -6,4 +6,11 @@ class Kendaraan_model extends CI_Model {
         return $this->db->get('kendaraan')->result();
     }
 
+    public function detail($id)
+{
+    return $this->db
+        ->where('id_kendaraan', $id)
+        ->get('kendaraan')
+        ->row();
+}
 }

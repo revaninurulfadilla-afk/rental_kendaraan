@@ -129,7 +129,7 @@
                                         Sewa
                                     </a>
 
-                                    <a href="<?= base_url('customer/kendaraan/detail/'.$k->id_kendaraan) ?>"
+                                    <a href="<?= base_url('index.php/customer/kendaraan/detail/'.$k->id_kendaraan) ?>"
                                     class="btn btn-secondary py-2 ml-1">
                                         Detail
                                     </a>
