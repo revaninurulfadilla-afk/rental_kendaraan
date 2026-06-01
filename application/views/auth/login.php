@@ -219,8 +219,18 @@
 
     <!-- REGISTER -->
     <div class="form-box register">
-
-        <form action="<?= site_url('auth/login') ?>" method="post">
+        <?php if($this->session->flashdata('error_register')){ ?>
+    <div style="
+        background:#fee2e2;
+        color:#b91c1c;
+        padding:10px;
+        border-radius:8px;
+        margin-bottom:15px;
+    ">
+        <?= $this->session->flashdata('error_register'); ?>
+    </div>
+<?php } ?>
+        <form action="<?= site_url('auth/register') ?>" method="post">
             <h1>Register</h1>
 
             <div class="input-box">

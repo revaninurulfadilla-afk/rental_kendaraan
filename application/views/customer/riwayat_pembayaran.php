@@ -29,6 +29,23 @@
   <body>
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <style>
+#ftco-navbar{
+    background:#1f2937 !important;
+}
+
+#ftco-navbar .nav-link{
+    color:white !important;
+}
+
+#ftco-navbar .nav-link:hover{
+    color:#01d28e !important;
+}
+
+#ftco-navbar .active a{
+    color:#01d28e !important;
+}
+</style>
 	    <div class="container">
 	     <a class="navbar-brand" href="<?= base_url('customer/dashboard') ?>">
                 <img src="<?= base_url('assets/customer/images/logo.png') ?>" 
@@ -47,7 +64,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a href="<?= base_url('index.php/customer/kendaraan') ?>" class="nav-link">
                         Kendaraan
                     </a>
@@ -59,7 +76,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a href="<?= site_url('customer/pembayaran/riwayat') ?>" class="nav-link">
                         Pembayaran
                     </a>
@@ -73,102 +90,94 @@
 	        </ul>
 	      </div>
 	    </div>
-	  </nav>
+	  </nav><br>
     <!-- END nav -->
-    
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?= base_url('assets/customer/images/bg_3.jpg') ?>');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="<?= base_url('customer/dashboard') ?>">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Mobil<i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">Daftar Kendaraan</h1>
-          </div>
-        </div>
-      </div>
-    </section>
-		
 
-		<section class="ftco-section bg-light">
-    	<div class="container">
-    		<div class="row">
-    			<?php foreach($kendaraan as $k){ ?>
+<br><section class="ftco-section pt-5 pb-3">
 
-                    <div class="col-md-4">
-                        <div class="car-wrap rounded ftco-animate">
+    <div class="container">
 
-                            <div class="img rounded d-flex align-items-end"
-                                 style="background-image: url('<?= base_url('assets/customer/images/'.$k->gambar) ?>');">
-                            </div>
+        <div class="card border-0 shadow-sm">
 
-                            <div class="text">
+            <div class="card-body text-center">
 
-                                <h2 class="mb-0">
-                                    <a href="#">
-                                        <?= $k->merk ?>
-                                    </a>
-                                </h2>
+                <h1 class="font-weight-bold text-primary mb-3">
+                    Riwayat Pembayaran
+                </h1>
 
-                                <div class="d-flex mb-3">
+                <p class="text-muted mb-0">
+                    Daftar seluruh pembayaran penyewaan kendaraan Anda
+                </p>
 
-                                    <span class="cat">
-                                        <?= $k->status_ketersediaan ?>
-                                    </span>
-
-                                    <p class="price ml-auto">
-                                        Rp<?= number_format($k->harga_sewa,0,',','.') ?>
-                                        <span>/hari</span>
-                                    </p>
-
-                                </div>
-
-                                <p class="d-flex mb-0 d-block">
-
-                                    <?php if($k->status_ketersediaan == 'Tersedia'){ ?>
-
-                                <a href="<?= site_url('customer/penyewaan/sewa/'.$k->id_kendaraan) ?>"
-                                  class="btn btn-primary">
-                                  Sewa
-                                </a>
-
-                            <?php } else { ?>
-
-                                <button class="btn btn-secondary" disabled>
-                                    Sudah Disewa
-                                </button>
-
-                            <?php } ?>
-                                    <a href="<?= base_url('index.php/customer/kendaraan/detail/'.$k->id_kendaraan) ?>"
-                                    class="btn btn-secondary py-2 ml-1">
-                                        Detail
-                                    </a>
-
-                                </p>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <?php } ?>
-    		</div>
-    		<div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
             </div>
-          </div>
+
         </div>
-    	</div>
-    </section>
+
+    </div>
+
+</section>
+
+<section class="ftco-section bg-light pt-0">
+
+<div class="container">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<table class="table table-bordered table-hover">
+
+<thead class="thead-dark">
+
+<tr>
+    <th>ID Pembayaran</th>
+    <th>ID Penyewaan</th>
+    <th>Tanggal</th>
+    <th>Jumlah</th>
+    <th>Metode</th>
+    <th>Status</th>
+    <th>Verifikasi</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<?php foreach($pembayaran as $p){ ?>
+
+<tr>
+
+<td><?= $p->id_pembayaran ?></td>
+
+<td><?= $p->id_penyewaan ?></td>
+
+<td><?= $p->tanggal_bayar ?></td>
+
+<td>
+Rp<?= number_format($p->jumlah_bayar,0,',','.') ?>
+</td>
+
+<td><?= $p->metode_pembayaran ?></td>
+
+<td><?= $p->status_pembayaran ?></td>
+
+<td><?= $p->status_verifikasi ?></td>
+
+</tr>
+
+<?php } ?>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
     
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">

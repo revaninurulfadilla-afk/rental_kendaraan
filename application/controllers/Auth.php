@@ -50,18 +50,65 @@ class Auth extends CI_Controller {
 
     // REGISTER
     public function register()
-    {
-        $data = [
-            'nama' => $this->input->post('nama'),
-            'email' => $this->input->post('email'),
-            'password' => md5($this->input->post('password')),
-            'role' => 'customer'
-        ];
+{
+    $nama     = $this->input->post('nama');
+    $email    = $this->input->post('email');
+    $password = md5($this->input->post('password'));
 
-        $this->User_model->register($data);
+    // cek email
+    $cek = $this->db->get_where('users', [
+        'email' => $email
+    ])->row();
 
-        redirect('auth');
+    if($cek){
+
+        echo "<script>
+                alert('Email sudah terdaftar');
+                window.history.back();
+              </script>";
+        return;
     }
+
+    // simpan ke users
+    $data_user = [
+        'nama'     => $nama,
+        'email'    => $email,
+        'password' => $password,
+        'role'     => 'customer'
+    ];
+
+    $this->db->insert('users', $data_user);
+
+    // ambil id user yang baru dibuat
+    $id_user = $this->db->insert_id();
+
+    // generate id pelanggan
+    $jumlah = $this->db->count_all('pelanggan') + 1;
+
+    $id_pelanggan = 'PLG'.str_pad(
+        $jumlah,
+        3,
+        '0',
+        STR_PAD_LEFT
+    );
+
+    // simpan ke pelanggan
+    $data_pelanggan = [
+        'id_pelanggan'     => $id_pelanggan,
+        'id_user'          => $id_user,
+        'nama'             => $nama,
+        'email'            => $email,
+        'password'         => $password,
+        'status_pelanggan' => 'Baru'
+    ];
+
+    $this->db->insert('pelanggan', $data_pelanggan);
+
+    echo "<script>
+            alert('Registrasi berhasil');
+            window.history.back();
+          </script>";
+}
     // LOGOUT
     public function logout()
     {

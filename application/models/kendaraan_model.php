@@ -9,8 +9,9 @@ class Kendaraan_model extends CI_Model {
     public function detail($id)
 {
     return $this->db
-        ->where('id_kendaraan', $id)
-        ->get('kendaraan')
+        ->get_where('kendaraan',[
+            'id_kendaraan' => $id
+        ])
         ->row();
 }
 }

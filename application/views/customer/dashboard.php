@@ -61,7 +61,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="<?= base_url('index.php/customer/pembayaran') ?>" class="nav-link">
+                    <a href="<?= site_url('customer/pembayaran/riwayat') ?>" class="nav-link">
                         Pembayaran
                     </a>
                 </li>
@@ -140,10 +140,20 @@
 
                           <p class="d-flex mb-0 d-block">
 
-                              <a href="<?= base_url('customer/penyewaan/sewa/'.$k->id_kendaraan) ?>"
-                                class="btn btn-primary py-2 mr-1">
+                             <?php if($k->status_ketersediaan == 'Tersedia'){ ?>
+
+                                <a href="<?= site_url('customer/penyewaan/sewa/'.$k->id_kendaraan) ?>"
+                                  class="btn btn-primary">
                                   Sewa
-                              </a>
+                                </a>
+
+                            <?php } else { ?>
+
+                                <button class="btn btn-secondary" disabled>
+                                    Sudah Disewa
+                                </button>
+
+                            <?php } ?>
 
                               <a href="<?= base_url('index.php/customer/kendaraan/detail/'.$k->id_kendaraan) ?>"
                                 class="btn btn-secondary py-2 ml-1">

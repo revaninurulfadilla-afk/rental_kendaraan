@@ -365,10 +365,10 @@
 
                         <p class="d-flex mb-0 d-block">
 
-                            <a href="<?= base_url('index.php/customer/penyewaan/sewa/'.$r->id_kendaraan) ?>"
-                               class="btn btn-primary py-2 mr-1">
-                                Sewa
-                            </a>
+                            <a href="<?= base_url('customer/penyewaan/sewa/'.$k->id_kendaraan) ?>"
+							class="btn btn-primary py-2 mr-1">
+							Sewa
+							</a>
 
                             <a href="<?= base_url('index.php/customer/kendaraan/detail/'.$r->id_kendaraan) ?>"
                                class="btn btn-secondary py-2 ml-1">
