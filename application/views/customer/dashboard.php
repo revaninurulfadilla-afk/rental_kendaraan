@@ -185,11 +185,12 @@
 					</div>
 					<div class="col-md-6 wrap-about ftco-animate">
 	          <div class="heading-section heading-section-white pl-md-5">
-	          	<span class="subheading">About us</span>
-	            <h2 class="mb-4">Welcome to Carbook</h2>
-	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	            <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	            <p><a href="#" class="btn btn-primary py-3 px-4">Search Vehicle</a></p>
+	          	<span class="subheading">Tentang Kami</span>
+	            <h2 class="mb-4">Selamat Datang di Mobil Rental Sukses</h2>
+	            <p style="text-align: justify;">Kami adalah penyedia jasa rental kendaraan yang berkomitmen memberikan layanan transportasi yang aman, nyaman, dan terpercaya bagi setiap pelanggan.</p>
+	            <p style="text-align: justify;">Dengan proses pemesanan yang mudah, harga yang kompetitif, serta pelayanan yang profesional, kami berupaya memberikan pengalaman terbaik dalam setiap perjalanan.</p>
+              <p style="text-align: justify;">Kepuasan pelanggan adalah prioritas utama kami. Percayakan kebutuhan transportasi Anda kepada MRS Rental Kendaraan dan nikmati perjalanan yang lebih nyaman dan menyenangkan.</p>
+	            <p><a href="#" class="btn btn-primary py-3 px-4">Lihat Kendaraan</a></p>
 	          </div>
 					</div>
 				</div>
@@ -200,8 +201,8 @@
 			<div class="container">
 				<div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
-          	<span class="subheading">Services</span>
-            <h2 class="mb-3">Our Latest Services</h2>
+          	<span class="subheading">Layanan</span>
+            <h2 class="mb-3">Layanan Kami</h2>
           </div>
         </div>
 				<div class="row">
@@ -209,8 +210,8 @@
 						<div class="services services-2 w-100 text-center">
             	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-wedding-car"></span></div>
             	<div class="text w-100">
-                <h3 class="heading mb-2">Wedding Ceremony</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3 class="heading mb-2">Penyewaan Kendaraan</h3>
+                <p>Menyediakan berbagai jenis kendaraan seperti Sedan, MPV, Mobil Box, Bak Terbuka, dan Minibus dengan pilihan sewa per jam, harian, mingguan, hingga bulanan.</p>
               </div>
             </div>
 					</div>
@@ -218,8 +219,8 @@
 						<div class="services services-2 w-100 text-center">
             	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
             	<div class="text w-100">
-                <h3 class="heading mb-2">City Transfer</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3 class="heading mb-2">Pemesanan Online</h3>
+                <p>Lakukan pemesanan kendaraan kapan saja melalui sistem tanpa harus datang langsung ke lokasi rental.</p>
               </div>
             </div>
 					</div>
@@ -227,8 +228,8 @@
 						<div class="services services-2 w-100 text-center">
             	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
             	<div class="text w-100">
-                <h3 class="heading mb-2">Airport Transfer</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3 class="heading mb-2">Antar & Jemput Kendaraan</h3>
+                <p>Layanan pengantaran dan penjemputan kendaraan sesuai lokasi pelanggan untuk memberikan kemudahan dalam proses penyewaan.</p>
               </div>
             </div>
 					</div>
@@ -251,8 +252,8 @@
 			<div class="container">
 				<div class="row justify-content-end">
 					<div class="col-md-6 heading-section heading-section-white ftco-animate">
-            <h2 class="mb-3">Do You Want To Earn With Us? So Don't Be Late.</h2>
-            <a href="#" class="btn btn-primary btn-lg">Become A Driver</a>
+            <h2 class="mb-3">Temukan Kendaraan Terbaik Sesuai Kebutuhan Anda</h2>
+            <a href="#" class="btn btn-primary btn-lg">Lihat Kendaraan</a>
           </div>
 				</div>
 			</div>
@@ -263,8 +264,8 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
-          	<span class="subheading">Testimonial</span>
-            <h2 class="mb-3">Happy Clients</h2>
+          	<span class="subheading">Testimoni</span>
+            <h2 class="mb-3">Kepuasaan Pelanggan</h2>
           </div>
         </div>
         <div class="row ftco-animate">
@@ -276,7 +277,7 @@
                       style="background-image: url('<?= base_url('assets/customer/images/person_1.jpg') ?>');">
                   </div>
                   <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="mb-4">Pelayanan sangat memuaskan dan proses pemesanan kendaraan sangat mudah. Kendaraan yang saya sewa dalam kondisi bersih, nyaman, dan sesuai dengan yang ditawarkan.</p>
                     <p class="name">Roger Scott</p>
                     <span class="position">Marketing Manager</span>
                   </div>
@@ -288,7 +289,7 @@
                       style="background-image: url('<?= base_url('assets/customer/images/person_2.jpg') ?>');">
                   </div>
                   <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="mb-4">Saya sangat terbantu dengan layanan antar kendaraan ke lokasi. Sopir yang disediakan juga ramah dan profesional. Sangat direkomendasikan untuk perjalanan bisnis maupun keluarga.</p>
                     <p class="name">Roger Scott</p>
                     <span class="position">Interface Designer</span>
                   </div>
@@ -300,7 +301,7 @@
                       style="background-image: url('<?= base_url('assets/customer/images/person_3.jpg') ?>');">
                   </div>
                   <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="mb-4">Harga sewa yang ditawarkan cukup terjangkau dengan banyak pilihan kendaraan. Proses pembayaran mudah dan konfirmasi penyewaan sangat cepat.</p>
                     <p class="name">Roger Scott</p>
                     <span class="position">UI Designer</span>
                   </div>
@@ -312,7 +313,7 @@
                       style="background-image: url('<?= base_url('assets/customer/images/person_4.jpg') ?>');">
                   </div>
                   <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="mb-4">Armada kendaraan terawat dan nyaman digunakan untuk perjalanan luar kota. Saya puas dengan pelayanan yang diberikan oleh MRS.</p>
                     <p class="name">Roger Scott</p>
                     <span class="position">Web Developer</span>
                   </div>
