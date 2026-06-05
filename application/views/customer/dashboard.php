@@ -181,7 +181,7 @@
 				<div class="row no-gutters">
 					<!-- FIX: tambahkan url() wrapper pada background-image -->
 					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center"
-     					style="background-image: url('<?= base_url('assets/customer/images/about.jpg') ?>');">
+     					style="background-image: url('<?= base_url('assets/customer/images/about1.jpg') ?>');">
 					</div>
 					<div class="col-md-6 wrap-about ftco-animate">
 	          <div class="heading-section heading-section-white pl-md-5">
@@ -190,7 +190,7 @@
 	            <p style="text-align: justify;">Kami adalah penyedia jasa rental kendaraan yang berkomitmen memberikan layanan transportasi yang aman, nyaman, dan terpercaya bagi setiap pelanggan.</p>
 	            <p style="text-align: justify;">Dengan proses pemesanan yang mudah, harga yang kompetitif, serta pelayanan yang profesional, kami berupaya memberikan pengalaman terbaik dalam setiap perjalanan.</p>
               <p style="text-align: justify;">Kepuasan pelanggan adalah prioritas utama kami. Percayakan kebutuhan transportasi Anda kepada MRS Rental Kendaraan dan nikmati perjalanan yang lebih nyaman dan menyenangkan.</p>
-	            <p><a href="#" class="btn btn-primary py-3 px-4">Lihat Kendaraan</a></p>
+	            <p><a href="<?= site_url('customer/kendaraan') ?>" class="btn btn-primary py-3 px-4">Lihat Kendaraan</a></p>
 	          </div>
 					</div>
 				</div>
@@ -237,8 +237,8 @@
 						<div class="services services-2 w-100 text-center">
             	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
             	<div class="text w-100">
-                <h3 class="heading mb-2">Whole City Tour</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3 class="heading mb-2">Pilihan Supir</h3>
+                <p>Pelanggan dapat menggunakan layanan sopir berpengalaman untuk perjalanan yang lebih aman, nyaman, dan efisien.</p>
               </div>
             </div>
 					</div>
@@ -253,7 +253,7 @@
 				<div class="row justify-content-end">
 					<div class="col-md-6 heading-section heading-section-white ftco-animate">
             <h2 class="mb-3">Temukan Kendaraan Terbaik Sesuai Kebutuhan Anda</h2>
-            <a href="#" class="btn btn-primary btn-lg">Lihat Kendaraan</a>
+            <a href="<?= site_url('customer/kendaraan') ?>" class="btn btn-primary btn-lg">Lihat Kendaraan</a>
           </div>
 				</div>
 			</div>
@@ -264,15 +264,16 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
-          	<span class="subheading">Testimoni</span>
-            <h2 class="mb-3">Pelanggan Puas</h2>
+          	<span class="subheading">Testimoni Pelanggan</span>
+            <h2 class="mb-3">Apa Kata Pelanggan Kami?</h2>
           </div>
         </div>
         <div class="row ftco-animate">
           <div class="col-md-12">
             <div class="carousel-testimony owl-carousel ftco-owl">
               <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                <div class="testimony-wrap rounded text-center py-4 pb-5"
+                  style="min-height: 350px;">
                   <div class="user-img mb-2"
                       style="background-image: url('<?= base_url('assets/customer/images/person_1.jpg') ?>');">
                   </div>
@@ -283,50 +284,50 @@
                 </div>
               </div>
               <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                <div class="testimony-wrap rounded text-center py-4 pb-5"
+                  style="min-height: 350px;">
                   <div class="user-img mb-2"
                       style="background-image: url('<?= base_url('assets/customer/images/person_2.jpg') ?>');">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Saya sangat terbantu dengan layanan antar kendaraan ke lokasi. Sopir yang disediakan juga ramah dan profesional. Sangat direkomendasikan untuk perjalanan bisnis maupun keluarga.</p>
                     <p class="name">Rahmat</p>
-                    <span class="position">Interface Designer</span>
                   </div>
                 </div>
               </div>
               <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                <div class="testimony-wrap rounded text-center py-4 pb-5"
+                  style="min-height: 350px;">
                   <div class="user-img mb-2"
                       style="background-image: url('<?= base_url('assets/customer/images/person_3.jpg') ?>');">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Harga sewa yang ditawarkan cukup terjangkau dengan banyak pilihan kendaraan. Proses pembayaran mudah dan konfirmasi penyewaan sangat cepat.</p>
                     <p class="name">Hilmy</p>
-                    <span class="position">UI Designer</span>
                   </div>
                 </div>
               </div>
               <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                <div class="testimony-wrap rounded text-center py-4 pb-5"
+                  style="min-height: 350px;">
                   <div class="user-img mb-2"
                       style="background-image: url('<?= base_url('assets/customer/images/person_4.jpg') ?>');">
                   </div>
                   <div class="text pt-4">
-                    <p class="mb-4">Armada kendaraan terawat dan nyaman digunakan untuk perjalanan luar kota. Saya puas dengan pelayanan yang diberikan oleh MRS.</p>
+                    <p class="mb-4">Kendaraan di rental ini terawat dan nyaman digunakan untuk perjalanan luar kota. Saya puas dengan pelayanan yang diberikan oleh MRS.</p>
                     <p class="name">Fadlan</p>
-                    <span class="position">Web Developer</span>
                   </div>
                 </div>
               </div>
               <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                <div class="testimony-wrap rounded text-center py-4 pb-5"
+                  style="min-height: 350px;">
                   <div class="user-img mb-2"
                       style="background-image: url('<?= base_url('assets/customer/images/person_5.jpg') ?>');">
                   </div>
                   <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">System Analyst</span>
+                    <p class="mb-4">Proses penyewaan sangat mudah karena semuanya dapat dilakukan secara online. Tidak perlu repot datang ke kantor rental, dan konfirmasi pemesanan juga sangat cepat.</p>
+                    <p class="name">Sandi</p>
                   </div>
                 </div>
               </div>
