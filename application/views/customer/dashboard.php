@@ -176,7 +176,7 @@
     	</div>
     </section>
 
-    <section class="ftco-section ftco-about">
+    <section id="tentang-kami" class="ftco-section ftco-about">
 			<div class="container">
 				<div class="row no-gutters">
 					<!-- FIX: tambahkan url() wrapper pada background-image -->
@@ -197,7 +197,7 @@
 			</div>
 		</section>
 
-		<section class="ftco-section">
+		<section id="layanan" class="ftco-section">
 			<div class="container">
 				<div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
@@ -260,12 +260,12 @@
 		</section>
 
 
-    <section class="ftco-section testimony-section bg-light">
+    <section id="testimoni" class="ftco-section testimony-section bg-light">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
           	<span class="subheading">Testimoni</span>
-            <h2 class="mb-3">Kepuasaan Pelanggan</h2>
+            <h2 class="mb-3">Pelanggan Puas</h2>
           </div>
         </div>
         <div class="row ftco-animate">
@@ -278,8 +278,7 @@
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Pelayanan sangat memuaskan dan proses pemesanan kendaraan sangat mudah. Kendaraan yang saya sewa dalam kondisi bersih, nyaman, dan sesuai dengan yang ditawarkan.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">Marketing Manager</span>
+                    <p class="name">Budi</p>
                   </div>
                 </div>
               </div>
@@ -290,7 +289,7 @@
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Saya sangat terbantu dengan layanan antar kendaraan ke lokasi. Sopir yang disediakan juga ramah dan profesional. Sangat direkomendasikan untuk perjalanan bisnis maupun keluarga.</p>
-                    <p class="name">Roger Scott</p>
+                    <p class="name">Rahmat</p>
                     <span class="position">Interface Designer</span>
                   </div>
                 </div>
@@ -302,7 +301,7 @@
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Harga sewa yang ditawarkan cukup terjangkau dengan banyak pilihan kendaraan. Proses pembayaran mudah dan konfirmasi penyewaan sangat cepat.</p>
-                    <p class="name">Roger Scott</p>
+                    <p class="name">Hilmy</p>
                     <span class="position">UI Designer</span>
                   </div>
                 </div>
@@ -314,7 +313,7 @@
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Armada kendaraan terawat dan nyaman digunakan untuk perjalanan luar kota. Saya puas dengan pelayanan yang diberikan oleh MRS.</p>
-                    <p class="name">Roger Scott</p>
+                    <p class="name">Fadlan</p>
                     <span class="position">Web Developer</span>
                   </div>
                 </div>
@@ -342,8 +341,9 @@
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2"><a href="#" class="logo">Car<span>book</span></a></h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <h2 class="ftco-heading-2"><a href="#" class="logo">Mobil<span>Rental</span><ahref="#" class="logo">Sukses</a></a></h2>
+              <p style="text-align: justify;">Mobil Rental Sukses menyediakan layanan penyewaan kendaraan yang aman, nyaman, dan terpercaya. Dengan berbagai pilihan armada serta pelayanan profesional, kami siap menjadi solusi transportasi terbaik untuk Anda.
+              </p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -353,13 +353,13 @@
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Information</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">About</a></li>
-                <li><a href="#" class="py-2 d-block">Services</a></li>
-                <li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
-                <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li>
-                <li><a href="#" class="py-2 d-block">Privacy &amp; Cookies Policy</a></li>
+              <h2 class="ftco-heading-2">Informasi</h2>
+                <ul class="list-unstyled">
+                    <li><a href="#kendaraan" class="py-2 d-block">Armada Kendaraan</a></li>
+                    <li><a href="#tentang-kami" class="py-2 d-block">Tentang Kami</a></li>
+                    <li><a href="#layanan" class="py-2 d-block">Layanan</a></li>
+                    <li><a href="#testimoni" class="py-2 d-block">Testimoni</a></li>
+                </ul>
               </ul>
             </div>
           </div>
@@ -377,12 +377,12 @@
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<h2 class="ftco-heading-2">Ada Pertanyaan? Silahkan Hubungi Kami</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text"> Jl. Sangiang No. 123, Tangerang, Banten</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">0822-1088-8215</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@mobilrentalsukses.com</span></a></li>
 	              </ul>
 	            </div>
             </div>
