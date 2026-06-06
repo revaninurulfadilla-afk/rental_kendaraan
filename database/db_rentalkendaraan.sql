@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2026 at 04:07 PM
+-- Generation Time: Jun 01, 2026 at 04:53 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -47,7 +47,7 @@ CREATE TABLE `kendaraan` (
 
 INSERT INTO `kendaraan` (`id_kendaraan`, `jenis_kendaraan`, `merk`, `plat_nomor`, `kelas_kendaraan`, `status_ketersediaan`, `tahun_produksi`, `gambar`, `harga_sewa`, `deskripsi`) VALUES
 ('KDR001', 'Mobil', 'Toyota Avanza', 'B1234ABC', 'MPV', 'Disewa', 2022, 'car-1.jpg', 500000, NULL),
-('KDR002', 'Mobil', 'Honda Brio', 'B5678DEF', 'City Car', 'Disewa', 2023, 'car-2.jpg', 500000, 'Honda Brio adalah kendaraan city car yang nyaman digunakan\r\nuntuk perjalanan dalam kota, hemat bahan bakar, dan cocok\r\nuntuk penggunaan harian maupun perjalanan bisnis.');
+('KDR002', 'Mobil', 'Honda Brio', 'B5678DEF', 'City Car', 'Tersedia', 2023, 'car-2.jpg', 500000, 'Honda Brio adalah kendaraan city car yang nyaman digunakan\r\nuntuk perjalanan dalam kota, hemat bahan bakar, dan cocok\r\nuntuk penggunaan harian maupun perjalanan bisnis.');
 
 -- --------------------------------------------------------
 
@@ -145,8 +145,7 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id_pembayaran`, `id_penyewaan`, `tanggal_bayar`, `jumlah_bayar`, `metode_pembayaran`, `status_pembayaran`, `bukti_transfer`, `status_verifikasi`) VALUES
-('BYR202606011458', 'SW2026060114522', '2026-06-01', 500000, 'Tunai', 'Belum Bayar', '', 'Pending'),
-('BYR202606011511', 'SW2026060115094', '2026-06-01', 1000000, 'Transfer', 'Menunggu Verifikasi', '', 'Pending');
+('BYR202606011458', 'SW2026060114522', '2026-06-01', 500000, 'Tunai', 'Belum Bayar', '', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -180,16 +179,16 @@ CREATE TABLE `penyewaan` (
   `durasi` int(11) DEFAULT NULL,
   `total_biaya` double DEFAULT NULL,
   `status_penyewaan` enum('Menunggu','Disetujui','Berjalan','Selesai','Dibatalkan') DEFAULT NULL,
-  `id_supir` varchar(10) DEFAULT NULL
+  `id_supir` varchar(10) DEFAULT NULL,
+  `tujuan_sewa` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `penyewaan`
 --
 
-INSERT INTO `penyewaan` (`id_penyewaan`, `id_pelanggan`, `id_kendaraan`, `tanggal_mulai`, `tanggal_selesai`, `metode_pengembalian`, `durasi`, `total_biaya`, `status_penyewaan`, `id_supir`) VALUES
-('SW2026060114522', NULL, 'KDR001', '2026-06-01', '2026-06-02', 'Ambil Sendiri', 1, 500000, 'Menunggu', NULL),
-('SW2026060115094', NULL, 'KDR002', '2026-06-01', '2026-06-03', 'Diantar', 2, 1000000, 'Menunggu', NULL);
+INSERT INTO `penyewaan` (`id_penyewaan`, `id_pelanggan`, `id_kendaraan`, `tanggal_mulai`, `tanggal_selesai`, `metode_pengembalian`, `durasi`, `total_biaya`, `status_penyewaan`, `id_supir`, `tujuan_sewa`) VALUES
+('SW2026060114522', NULL, 'KDR001', '2026-06-01', '2026-06-02', 'Ambil Sendiri', 1, 500000, 'Menunggu', NULL, NULL);
 
 -- --------------------------------------------------------
 

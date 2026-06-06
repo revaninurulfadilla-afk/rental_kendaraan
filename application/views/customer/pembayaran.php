@@ -1,217 +1,121 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Pembayaran</title>
+<section class="hero-wrap hero-wrap-2"
+    style="background-image: url('<?= base_url('assets/customer/images/bg_3.jpg') ?>');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+            <div class="col-md-9 pb-5">
+                <p class="breadcrumbs">
+                    <span class="mr-2">
+                        <a href="<?= site_url('customer/dashboard') ?>">
+                            Home
+                        </a>
+                    </span>
+                    <span>Pembayaran</span>
+                </p>
 
-    <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-
-    <style>
-
-    body{
-        background:#f4f6f9;
-    }
-
-    .card-payment{
-        max-width:900px;
-        margin:40px auto;
-        border:none;
-        border-radius:20px;
-        overflow:hidden;
-        box-shadow:0 10px 30px rgba(0,0,0,.08);
-    }
-
-    .header{
-        background:#0d6efd;
-        color:white;
-        padding:25px;
-        font-size:28px;
-        font-weight:700;
-    }
-
-    .total-box{
-        background:#f8f9fa;
-        border-radius:15px;
-        padding:30px;
-        text-align:center;
-        height:100%;
-    }
-
-    .total-box h5{
-        color:#666;
-    }
-
-    .harga{
-        font-size:45px;
-        font-weight:bold;
-        color:#0d6efd;
-    }
-
-    .info-box{
-        background:white;
-        border:1px solid #eee;
-        border-radius:15px;
-        padding:20px;
-    }
-
-    .btn-bayar{
-        height:55px;
-        font-size:20px;
-        border-radius:12px;
-    }
-
-    .rekening{
-        background:#e9f3ff;
-        padding:15px;
-        border-radius:10px;
-        margin-bottom:15px;
-    }
-
-    </style>
-</head>
-<body>
-
-<div class="container">
-
-<div class="card card-payment">
-
-    <div class="header">
-        Pembayaran Penyewaan
+                <h1 class="mb-3 bread">
+                    Pembayaran
+                </h1>
+            </div>
+        </div>
     </div>
+</section>
 
-    <div class="card-body p-4">
+<section class="ftco-section bg-light">
+    <div class="container">
 
-        <form method="post"
-              enctype="multipart/form-data"
-              action="<?= site_url('customer/pembayaran/simpan') ?>">
+        <div class="row">
 
-            <input type="hidden"
-                   name="id_penyewaan"
-                   value="<?= $sewa->id_penyewaan ?>">
+            <?php if(empty($transaksi)): ?>
 
-            <input type="hidden"
-                   name="jumlah_bayar"
-                   value="<?= $sewa->total_biaya ?>">
+                <div class="col-md-12">
+                    <div class="alert alert-info">
+                        Belum ada transaksi yang harus dibayar.
+                    </div>
+                </div>
 
-            <div class="row">
+            <?php endif; ?>
 
-                <div class="col-md-7">
+            <?php foreach($transaksi as $t): ?>
 
-                    <div class="info-box">
+            <div class="col-md-6 mb-4">
 
-                        <h5>Detail Penyewaan</h5>
+                <div class="card shadow-sm">
+
+                    <div class="card-header bg-primary text-white">
+
+                        <strong>
+                            <?= $t->kode_transaksi ?>
+                        </strong>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <h5>
+                            <?= $t->merk ?>
+                            -
+                            <?= $t->nama_kendaraan ?>
+                        </h5>
+
                         <hr>
 
                         <p>
-                            <strong>ID Penyewaan :</strong><br>
-                            <?= $sewa->id_penyewaan ?>
+                            <b>Jenis Sewa :</b>
+                            <?= ucfirst($t->jenis_sewa) ?>
                         </p>
 
                         <p>
-                            <strong>Tanggal Mulai :</strong><br>
-                            <?= $sewa->tanggal_mulai ?>
+                            <b>Lama Sewa :</b>
+                            <?= $t->lama_sewa ?>
                         </p>
 
                         <p>
-                            <strong>Tanggal Selesai :</strong><br>
-                            <?= $sewa->tanggal_selesai ?>
+                            <b>Tanggal Mulai :</b>
+                            <?= date('d-m-Y H:i', strtotime($t->tgl_mulai)) ?>
                         </p>
 
                         <p>
-                            <strong>Durasi :</strong><br>
-                            <?= $sewa->durasi ?> Hari
+                            <b>Tanggal Selesai :</b>
+                            <?= date('d-m-Y H:i', strtotime($t->tgl_selesai)) ?>
                         </p>
+
+                        <p>
+                            <b>Status :</b>
+                            <span class="badge badge-warning">
+                                <?= ucfirst($t->status) ?>
+                            </span>
+                        </p>
+
+                        <hr>
+
+                        <h4 class="text-primary">
+
+                            Rp<?= number_format(
+                                $t->total_bayar,
+                                0,
+                                ',',
+                                '.'
+                            ) ?>
+
+                        </h4>
+
+                        <a href="<?= site_url('customer/pembayaran/bayar/'.$t->id) ?>"
+                           class="btn btn-primary btn-block mt-3">
+
+                            Bayar Sekarang
+
+                        </a>
 
                     </div>
 
                 </div>
 
-                <div class="col-md-5">
-
-                    <div class="total-box">
-
-                        <h5>Total Pembayaran</h5>
-
-                        <div class="harga">
-                            Rp<?= number_format($sewa->total_biaya,0,',','.') ?>
-                        </div>
-
-                    </div>
-
-                </div>
-
             </div>
 
-            <hr class="my-4">
+            <?php endforeach; ?>
 
-            <div class="form-group">
-
-                <label>Metode Pembayaran</label>
-
-                <select class="form-control"
-                        id="metode"
-                        name="metode_pembayaran"
-                        required>
-
-                    <option value="">-- Pilih Metode --</option>
-                    <option value="Transfer">Transfer Bank</option>
-                    <option value="Tunai">Tunai</option>
-
-                </select>
-
-            </div>
-
-            <div id="transfer-box" style="display:none;">
-
-                <div class="rekening">
-
-                    <strong>Transfer ke:</strong><br>
-
-                    BCA : 1234567890<br>
-                    A/N Rental Kendaraan
-
-                </div>
-
-                <div class="form-group">
-
-                    <label>Upload Bukti Transfer</label>
-
-                    <input type="file"
-                           name="bukti_transfer"
-                           class="form-control">
-
-                </div>
-
-            </div>
-
-            <button type="submit"
-                    class="btn btn-success btn-block btn-bayar">
-
-                Bayar Sekarang
-
-            </button>
-
-        </form>
+        </div>
 
     </div>
-
-</div>
-
-</div>
-
-<script>
-
-document.getElementById('metode').addEventListener('change',function(){
-
-    if(this.value=='Transfer'){
-        document.getElementById('transfer-box').style.display='block';
-    }else{
-        document.getElementById('transfer-box').style.display='none';
-    }
-
-});
-
-</script>
-
-</body>
-</html>
+</section>

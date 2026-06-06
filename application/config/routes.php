@@ -53,7 +53,19 @@ $route['default_controller'] = 'auth';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['auth'] = 'auth/index';
 
-$route['login'] = 'auth';
-$route['login/proses'] = 'auth/login';
-$route['logout'] = 'auth/logout';
+$route['login'] = 'auth/login';
+
+$route['register'] = 'auth/register';
+
+$route['process-register']
+    = 'auth/process_register';
+
+$route['logout']
+    = 'auth/logout';
+
+$route['admin/dashboard'] = 'admin/dashboard';
+$route['customer/dashboard'] = 'customer/dashboard';
+
+$route['admin/profil'] = 'admin/profil';

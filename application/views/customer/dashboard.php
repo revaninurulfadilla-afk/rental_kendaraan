@@ -29,54 +29,7 @@
   </head>
   <body>
     
-	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="<?= base_url('customer/dashboard') ?>">
-                <img src="<?= base_url('assets/customer/images/logo.png') ?>" 
-                    alt="Logo Rental" 
-                    height="50">
-            </a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a href="<?= base_url('index.php/customer/dashboard') ?>" class="nav-link">
-                        Dashboard
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="<?= base_url('index.php/customer/kendaraan') ?>" class="nav-link">
-                        Kendaraan
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="<?= base_url('index.php/customer/penyewaan') ?>" class="nav-link">
-                        Penyewaan Saya
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="<?= site_url('customer/pembayaran/riwayat') ?>" class="nav-link">
-                        Pembayaran
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="<?= base_url('index.php/auth/logout') ?>" class="nav-link">
-                        Logout
-                    </a>
-                </li>
-            </ul>
-	      </div>
-	    </div>
-	  </nav>
-    <!-- END nav -->
-    
+	  
     <div class="hero-wrap ftco-degree-bg" style="background-image: url('<?= base_url('assets/customer/images/bg_1.jpg') ?>');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -113,56 +66,81 @@
               <div class="item">
                   <div class="car-wrap rounded ftco-animate">
 
-                      <div class="img rounded d-flex align-items-end"
-                          style="background-image: url('<?= base_url('assets/customer/images/'.$k->gambar) ?>');">
-                      </div>
+<div class="img rounded d-flex align-items-end"
+                             style="background-image:url('<?= base_url('assets/customer/images/'.$k->foto); ?>');">
+                        </div>
 
-                      <div class="text">
+                        <div class="text">
 
-                          <h2 class="mb-0">
-                              <a href="#">
-                                  <?= $k->merk ?>
-                              </a>
-                          </h2>
+                            <h2 class="mb-0">
 
-                          <div class="d-flex mb-3">
-
-                              <span class="cat">
-                                  <?= $k->status_ketersediaan ?>
-                              </span>
-
-                              <p class="price ml-auto">
-                                  Rp<?= number_format($k->harga_sewa,0,',','.') ?>
-                                  <span>/hari</span>
-                              </p>
-
-                          </div>
-
-                          <p class="d-flex mb-0 d-block">
-
-                             <?php if($k->status_ketersediaan == 'Tersedia'){ ?>
-
-                                <a href="<?= site_url('customer/penyewaan/sewa/'.$k->id_kendaraan) ?>"
-                                  class="btn btn-primary">
-                                  Sewa
+                                <a href="#">
+                                    <?= $k->merk; ?>
                                 </a>
 
-                            <?php } else { ?>
+                            </h2>
 
-                                <button class="btn btn-secondary" disabled>
-                                    Sudah Disewa
-                                </button>
+                            <div class="d-flex mb-3">
 
-                            <?php } ?>
+                          <span class="cat">
+                              <?= ucfirst($k->status) ?>
+                          </span>
 
-                              <a href="<?= base_url('index.php/customer/kendaraan/detail/'.$k->id_kendaraan) ?>"
-                                class="btn btn-secondary py-2 ml-1">
-                                  Detail
-                              </a>
+                                <p class="price ml-auto">
+                                    Rp<?= number_format($k->tarif_hari,0,',','.') ?>
+                                    <span>/hari</span>
+                                </p>
 
-                          </p>
+                            </div>
 
-                      </div>
+                            <ul class="list-unstyled small">
+
+                                <li>Per Jam :
+                                    Rp<?= number_format($k->tarif_jam,0,',','.') ?>
+                                </li>
+
+                                <li>Per Minggu :
+                                    Rp<?= number_format($k->tarif_minggu,0,',','.') ?>
+                                </li>
+
+                                <li>Per Bulan :
+                                    Rp<?= number_format($k->tarif_bulan,0,',','.') ?>
+                                </li>
+
+                            </ul>
+
+                            <p class="d-flex mb-0 d-block">
+
+                                <?php if($k->status == 'tersedia'): ?>
+
+                                    <a href="<?= site_url('customer/penyewaan/sewa/'.$k->id); ?>"
+                                       class="btn btn-primary py-2 mr-1">
+
+                                        Sewa
+
+                                    </a>
+
+                                <?php else: ?>
+
+                                    <button class="btn btn-secondary py-2 mr-1"
+                                            disabled>
+
+                                        Sudah Disewa
+
+                                    </button>
+
+                                <?php endif; ?>
+
+                                <a href="<?= site_url('customer/kendaraan/detail/'.$k->id); ?>"
+                                   class="btn btn-secondary py-2 ml-1">
+
+                                    Detail
+
+                                </a>
+
+                            </p>
+
+                        </div>
 
                   </div>
               </div>
@@ -335,65 +313,6 @@
         </div>
       </div>
     </section>
-
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2"><a href="#" class="logo">Car<span>book</span></a></h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Information</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">About</a></li>
-                <li><a href="#" class="py-2 d-block">Services</a></li>
-                <li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
-                <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li>
-                <li><a href="#" class="py-2 d-block">Privacy &amp; Cookies Policy</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Customer Support</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">FAQ</a></li>
-                <li><a href="#" class="py-2 d-block">Payment Option</a></li>
-                <li><a href="#" class="py-2 d-block">Booking Tips</a></li>
-                <li><a href="#" class="py-2 d-block">How it works</a></li>
-                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-	              </ul>
-	            </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
-          </div>
-        </div>
-      </div>
-    </footer>
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>

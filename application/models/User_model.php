@@ -1,53 +1,51 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_model extends CI_Model {
-
-    // LOGIN
-    public function login($email, $password)
+class User_model extends CI_Model
+{
+    public function getUserByEmail($email)
     {
-        $this->db->where('email', $email);
-        $this->db->where('password', md5($password));
-
-        return $this->db->get('users')->row();
-    }
-    // REGISTER CUSTOMER
-    public function register($data)
-    {
-        return $this->db->insert('users', $data);
-    }
-    // CEK EMAIL
-    public function cek_email($email)
-    {
-        $this->db->where('email', $email);
-
-        return $this->db->get('users')->row();
-    }
-    // AMBIL SEMUA USER
-    public function get_all_user()
-    {
-        return $this->db->get('users')->result();
-    }
-    // AMBIL USER BERDASARKAN ID
-    public function get_user_by_id($id)
-    {
-        $this->db->where('id', $id);
-
-        return $this->db->get('users')->row();
-    }
-    // UPDATE USER
-    public function update_user($id, $data)
-    {
-        $this->db->where('id', $id);
-
-        return $this->db->update('users', $data);
-    }
-    // HAPUS USER
-    public function delete_user($id)
-    {
-        $this->db->where('id', $id);
-
-        return $this->db->delete('users');
+        return $this->db
+            ->where('email',$email)
+            ->get('users')
+            ->row();
     }
 
+    public function insertUser($data)
+    {
+        $this->db->insert(
+            'users',
+            $data
+        );
+
+        return $this->db->insert_id();
+    }
+
+    public function insertPelanggan($data)
+    {
+        return $this->db->insert(
+            'pelanggan',
+            $data
+        );
+    }
+
+    public function getPelanggan($user_id)
+    {
+        return $this->db
+            ->select('
+                users.*,
+                pelanggan.*
+            ')
+            ->from('users')
+            ->join(
+                'pelanggan',
+                'pelanggan.user_id = users.id'
+            )
+            ->where(
+                'users.id',
+                $user_id
+            )
+            ->get()
+            ->row();
+    }
 }

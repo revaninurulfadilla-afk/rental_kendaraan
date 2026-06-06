@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Register</title>
+    <title>Login | Rental Kendaraan</title>
 
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -26,65 +26,36 @@
         }
 
         .container{
-            position:relative;
-            width:850px;
-            height:550px;
+            width:450px;
             background:#fff;
-            border-radius:30px;
-            overflow:hidden;
+            border-radius:20px;
+            padding:40px;
             box-shadow:0 0 30px rgba(0,0,0,.2);
         }
 
-        .form-box{
-            position:absolute;
-            width:50%;
-            height:100%;
-            background:#fff;
-            display:flex;
-            align-items:center;
+        .logo{
             text-align:center;
-            padding:40px;
-            transition:.6s ease-in-out;
-            z-index: 2;
+            margin-bottom:20px;
         }
 
-        .form-box.login{
-            right:0;
-        }
-
-        .form-box.register{
-            left:-50%;
-            opacity:0;
-            visibility:hidden;
-        }
-
-        .container.active .form-box.login{
-            right:-50%;
-        }
-
-        .container.active .form-box.register{
-            left:0;
-            opacity:1;
-            visibility:visible;
-        }
-
-        form{
-            width:100%;
+        .logo img{
+            width:120px;
         }
 
         h1{
-            margin-bottom:20px;
+            text-align:center;
+            margin-bottom:25px;
             color:#2563eb;
         }
 
         .input-box{
             position:relative;
-            margin:20px 0;
+            margin-bottom:20px;
         }
 
         .input-box input{
             width:100%;
-            padding:13px 50px 13px 20px;
+            padding:13px 45px 13px 15px;
             border:none;
             background:#eff6ff;
             border-radius:8px;
@@ -93,10 +64,10 @@
 
         .input-box i{
             position:absolute;
-            right:20px;
+            right:15px;
             top:50%;
             transform:translateY(-50%);
-            color:#999;
+            color:#888;
         }
 
         .btn{
@@ -106,210 +77,107 @@
             border-radius:8px;
             background:#2563eb;
             color:#fff;
-            font-size:16px;
             cursor:pointer;
-            transition:0.3s;
+            font-size:16px;
         }
+
         .btn:hover{
             background:#1d4ed8;
         }
 
-        .toggle-box{
-            position:absolute;
-            width:100%;
-            height:100%;
-        }
-
-        .toggle-box::before{
-            content:'';
-            position:absolute;
-            left:-250%;
-            width:300%;
-            height:100%;
-            background:#60a5fa;
-            border-radius:150px;
-            transition:1s ease-in-out;
-        }
-
-        .container.active .toggle-box::before{
-            left:50%;
-        }
-
-        .toggle-panel{
-            position:absolute;
-            width:50%;
-            height:100%;
-            color:#fff;
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            align-items:center;
-            z-index:2;
-            transition:.6s ease-in-out;
-        }
-
-        .toggle-left{
-            left:0;
-        }
-
-        .toggle-right{
-            right:-50%;
-        }
-
-        .container.active .toggle-left{
-            left:-50%;
-        }
-
-        .container.active .toggle-right{
-            right:0;
-        }
-
-        .toggle-panel p{
-            margin:20px 0;
-        }
-
-        .toggle-panel button{
-            width:160px;
-            height:46px;
-            border:2px solid #fff;
-            background:transparent;
-            color:#fff;
+        .alert-danger{
+            background:#fee2e2;
+            color:#b91c1c;
+            padding:10px;
             border-radius:8px;
-            cursor:pointer;
+            margin-bottom:15px;
         }
-        .toggle-panel h2{
+
+        .alert-success{
+            background:#dcfce7;
+            color:#166534;
+            padding:10px;
+            border-radius:8px;
+            margin-bottom:15px;
+        }
+
+        .register-link{
+            text-align:center;
             margin-top:20px;
-            color:white;
+        }
+
+        .register-link a{
+            color:#2563eb;
+            text-decoration:none;
+            font-weight:bold;
         }
 
     </style>
-
 </head>
 <body>
 
 <div class="container">
 
-    <!-- LOGIN -->
-    <div class="form-box login">
-
-        <form action="<?= base_url('index.php/auth/login') ?>" method="post">
-            <h1>Login</h1>
-
-            <div class="input-box">
-                <input type="email" name="email"
-                placeholder="Email" required>
-
-                <i class="fa-solid fa-envelope"></i>
-            </div>
-
-            <div class="input-box">
-                <input type="password" name="password"
-                placeholder="Password" required>
-
-                <i class="fa-solid fa-lock"></i>
-            </div>
-
-            <button type="submit" class="btn">
-                Login
-            </button>
-
-        </form>
-
+    <div class="logo">
+        <img src="<?= base_url('assets/logo.png') ?>" alt="Logo">
     </div>
 
-    <!-- REGISTER -->
-    <div class="form-box register">
-        <?php if($this->session->flashdata('error_register')){ ?>
-    <div style="
-        background:#fee2e2;
-        color:#b91c1c;
-        padding:10px;
-        border-radius:8px;
-        margin-bottom:15px;
-    ">
-        <?= $this->session->flashdata('error_register'); ?>
-    </div>
-<?php } ?>
-        <form action="<?= site_url('auth/register') ?>" method="post">
-            <h1>Register</h1>
+    <h1>Login</h1>
 
-            <div class="input-box">
-                <input type="text" name="nama"
-                placeholder="Nama Lengkap" required>
+    <?php if($this->session->flashdata('error')) : ?>
+        <div class="alert-danger">
+            <?= $this->session->flashdata('error'); ?>
+        </div>
+    <?php endif; ?>
 
-                <i class="fa-solid fa-user"></i>
-            </div>
+    <?php if($this->session->flashdata('success')) : ?>
+        <div class="alert-success">
+            <?= $this->session->flashdata('success'); ?>
+        </div>
+    <?php endif; ?>
 
-            <div class="input-box">
-                <input type="email" name="email"
-                placeholder="Email" required>
+    <?= validation_errors(
+        '<div class="alert-danger">',
+        '</div>'
+    ); ?>
 
-                <i class="fa-solid fa-envelope"></i>
-            </div>
+    <form action="<?= site_url('auth/login') ?>" method="post">
 
-            <div class="input-box">
-                <input type="password" name="password"
-                placeholder="Password" required>
+        <div class="input-box">
+            <input type="email"
+                   name="email"
+                   placeholder="Email"
+                   required>
 
-                <i class="fa-solid fa-lock"></i>
-            </div>
-
-            <button type="submit" class="btn">
-                Register
-            </button>
-
-        </form>
-
-    </div>
-
-    <!-- PANEL -->
-    <div class="toggle-box">
-
-        <div class="toggle-panel toggle-left">
-
-            <img src="<?= base_url('assets/logo.png') ?>"width="180">
-            <h2>Sistem Rental Kendaraan</h2>
-
-            <p>Belum punya akun?</p>
-
-            <button class="register-btn">
-                Register
-            </button>
-
+            <i class="fa-solid fa-envelope"></i>
         </div>
 
-        <div class="toggle-panel toggle-right">
+        <div class="input-box">
+            <input type="password"
+                   name="password"
+                   placeholder="Password"
+                   required>
 
-            <img src="<?= base_url('assets/logo.png') ?>"width="180">
-            <h2>Sistem Rental Kendaraan</h2>
-
-            <p>Sudah punya akun?</p>
-
-            <button class="login-btn">
-                Login
-            </button>
-
+            <i class="fa-solid fa-lock"></i>
         </div>
+
+        <button type="submit" class="btn">
+            Login
+        </button>
+
+    </form>
+
+    <div class="register-link">
+
+        Belum punya akun?
+
+        <a href="<?= site_url('auth/register') ?>">
+            Register
+        </a>
 
     </div>
 
 </div>
-
-<script>
-
-    const container = document.querySelector('.container');
-    const registerBtn = document.querySelector('.register-btn');
-    const loginBtn = document.querySelector('.login-btn');
-
-    registerBtn.addEventListener('click', () => {
-        container.classList.add('active');
-    });
-
-    loginBtn.addEventListener('click', () => {
-        container.classList.remove('active');
-    });
-
-</script>
 
 </body>
 </html>

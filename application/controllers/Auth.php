@@ -1,120 +1,269 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
-
+class Auth extends CI_Controller
+{
     public function __construct()
     {
         parent::__construct();
 
         $this->load->model('User_model');
+        $this->load->library('session');
+        $this->load->library('form_validation');
     }
 
-    // halaman login
+    /*
+    |--------------------------------------------------------------------------
+    | LOGIN PAGE
+    |--------------------------------------------------------------------------
+    */
+
     public function index()
     {
+        if($this->session->userdata('login'))
+        {
+            if($this->session->userdata('role') == 'admin')
+            {
+                redirect('admin/dashboard');
+            }
+
+            redirect('customer/dashboard');
+        }
+
         $this->load->view('auth/login');
     }
 
-    // proses login
+    /*
+    |--------------------------------------------------------------------------
+    | PROCESS LOGIN
+    |--------------------------------------------------------------------------
+    */
+
     public function login()
     {
-        $email = $this->input->post('email');
+        $this->form_validation->set_rules(
+            'email',
+            'Email',
+            'required|valid_email'
+        );
+
+        $this->form_validation->set_rules(
+            'password',
+            'Password',
+            'required'
+        );
+
+        if($this->form_validation->run() == FALSE)
+        {
+            $this->load->view('auth/login');
+            return;
+        }
+
+        $email = trim(
+            $this->input->post('email')
+        );
+
         $password = $this->input->post('password');
 
-        $user = $this->User_model->login($email, $password);
+        $user = $this->User_model->getUserByEmail($email);
 
-        if($user){
+        if(!$user)
+        {
+            $this->session->set_flashdata(
+                'error',
+                'Email tidak ditemukan'
+            );
 
-            $data_session = [
-                'id_user' => $user->id,
-                'nama' => $user->nama,
-                'role' => $user->role,
-                'login' => TRUE
-            ];
-
-            $this->session->set_userdata($data_session);
-
-            if($user->role == 'admin'){
-                redirect('admin/dashboard');
-            }else{
-                redirect('customer/dashboard');
-            }
-
-        }else{
-
-            echo "Email atau Password salah";
-
+            redirect('auth');
         }
+
+        if(
+            !password_verify(
+                $password,
+                $user->password
+            )
+        )
+        {
+            $this->session->set_flashdata(
+                'error',
+                'Password salah'
+            );
+
+            redirect('auth');
+        }
+
+        if($user->status != 'aktif')
+        {
+            $this->session->set_flashdata(
+                'error',
+                'Akun tidak aktif'
+            );
+
+            redirect('auth');
+        }
+
+        $data_session = [
+
+            'id_user' => $user->id,
+
+            'nama' => $user->nama,
+
+            'email' => $user->email,
+
+            'role' => $user->role,
+
+            'login' => TRUE
+        ];
+
+        $this->session->set_userdata(
+            $data_session
+        );
+
+        if($user->role == 'admin')
+        {
+            redirect('admin/dashboard');
+        }
+
+        redirect('customer/dashboard');
     }
 
-    // REGISTER
+    /*
+    |--------------------------------------------------------------------------
+    | REGISTER PAGE
+    |--------------------------------------------------------------------------
+    */
+
     public function register()
-{
-    $nama     = $this->input->post('nama');
-    $email    = $this->input->post('email');
-    $password = md5($this->input->post('password'));
-
-    // cek email
-    $cek = $this->db->get_where('users', [
-        'email' => $email
-    ])->row();
-
-    if($cek){
-
-        echo "<script>
-                alert('Email sudah terdaftar');
-                window.history.back();
-              </script>";
-        return;
+    {
+        $this->load->view(
+            'auth/register'
+        );
     }
 
-    // simpan ke users
-    $data_user = [
-        'nama'     => $nama,
-        'email'    => $email,
-        'password' => $password,
-        'role'     => 'customer'
-    ];
+    /*
+    |--------------------------------------------------------------------------
+    | PROCESS REGISTER
+    |--------------------------------------------------------------------------
+    */
 
-    $this->db->insert('users', $data_user);
+    public function process_register()
+    {
+        $this->form_validation->set_rules(
+            'nama',
+            'Nama',
+            'required'
+        );
 
-    // ambil id user yang baru dibuat
-    $id_user = $this->db->insert_id();
+        $this->form_validation->set_rules(
+            'email',
+            'Email',
+            'required|valid_email'
+        );
 
-    // generate id pelanggan
-    $jumlah = $this->db->count_all('pelanggan') + 1;
+        $this->form_validation->set_rules(
+            'password',
+            'Password',
+            'required|min_length[6]'
+        );
 
-    $id_pelanggan = 'PLG'.str_pad(
-        $jumlah,
-        3,
-        '0',
-        STR_PAD_LEFT
-    );
+        $this->form_validation->set_rules(
+            'telepon',
+            'Telepon',
+            'required'
+        );
 
-    // simpan ke pelanggan
-    $data_pelanggan = [
-        'id_pelanggan'     => $id_pelanggan,
-        'id_user'          => $id_user,
-        'nama'             => $nama,
-        'email'            => $email,
-        'password'         => $password,
-        'status_pelanggan' => 'Baru'
-    ];
+        if(
+            $this->form_validation->run()
+            == FALSE
+        )
+        {
+            $this->load->view(
+                'auth/register'
+            );
 
-    $this->db->insert('pelanggan', $data_pelanggan);
+            return;
+        }
 
-    echo "<script>
-            alert('Registrasi berhasil');
-            window.history.back();
-          </script>";
-}
-    // LOGOUT
+        $email = trim(
+            $this->input->post('email')
+        );
+
+        $cek = $this->User_model->getUserByEmail($email);
+
+        if($cek)
+        {
+            $this->session->set_flashdata(
+                'error',
+                'Email sudah digunakan'
+            );
+
+            redirect('auth/register');
+        }
+
+        $user = [
+
+            'nama' => $this->input->post('nama'),
+
+            'email' => $email,
+
+            'password' => password_hash(
+                $this->input->post('password'),
+                PASSWORD_DEFAULT
+            ),
+
+            'role' => 'customer',
+
+            'status' => 'aktif',
+
+            'created_at' => date(
+                'Y-m-d H:i:s'
+            )
+        ];
+
+        $user_id = $this->User_model
+            ->insertUser($user);
+
+        $pelanggan = [
+
+            'user_id' => $user_id,
+
+            'nik' => $this->input
+                        ->post('nik'),
+
+            'alamat' => $this->input
+                        ->post('alamat'),
+
+            'telepon' => $this->input
+                        ->post('telepon'),
+
+            'jumlah_transaksi' => 0,
+
+            'is_pelanggan_lama' => 0
+        ];
+
+        $this->User_model
+            ->insertPelanggan(
+                $pelanggan
+            );
+
+        $this->session->set_flashdata(
+            'success',
+            'Registrasi berhasil'
+        );
+
+        redirect('auth');
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | LOGOUT
+    |--------------------------------------------------------------------------
+    */
+
     public function logout()
     {
         $this->session->sess_destroy();
+
         redirect('auth');
     }
-    
-
 }

@@ -1,96 +1,139 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pembayaran extends CI_Controller {
-
+class Pembayaran extends CI_Controller
+{
     public function __construct()
     {
         parent::__construct();
 
-        if(!$this->session->userdata('login')){
+        if(!$this->session->userdata('login'))
+        {
             redirect('auth');
         }
+
+        $this->load->model('Pembayaran_model');
     }
 
-    // halaman pembayaran
-    public function index($id_penyewaan)
+    public function bayar($id)
 {
-    $data['sewa'] = $this->db
-        ->order_by('id_penyewaan','DESC')
-        ->get('penyewaan')
+    $data['title'] = 'Upload Pembayaran';
+
+    $data['transaksi'] = $this->db
+        ->select('transaksi.*, kendaraan.merk, kendaraan.nama_kendaraan')
+        ->from('transaksi')
+        ->join('kendaraan','kendaraan.id=transaksi.kendaraan_id')
+        ->where('transaksi.id',$id)
+        ->get()
         ->row();
 
-    $this->load->view('customer/pembayaran', $data);
-}
-
-    // simpan pembayaran
-    public function simpan()
+    if(!$data['transaksi'])
     {
-        $id_pembayaran = 'BYR'.date('YmdHis');
-
-        $bukti_transfer = '';
-
-        if(!empty($_FILES['bukti_transfer']['name']))
-        {
-            $config['upload_path']   = './assets/bukti_transfer/';
-            $config['allowed_types'] = 'jpg|jpeg|png|pdf';
-            $config['max_size']      = 2048;
-
-            $this->load->library('upload',$config);
-
-            if($this->upload->do_upload('bukti_transfer'))
-            {
-                $bukti_transfer =
-                    $this->upload->data('file_name');
-            }
-        }
-
-        $metode = $this->input->post('metode_pembayaran');
-
-        if($metode == 'Transfer')
-        {
-            $status_pembayaran = 'Menunggu Verifikasi';
-            $status_verifikasi = 'Pending';
-        }
-        else
-        {
-            $status_pembayaran = 'Belum Bayar';
-            $status_verifikasi = 'Pending';
-        }
-
-       $data = [
-
-    'id_pembayaran'      => $id_pembayaran,
-    'id_penyewaan'       => $this->input->post('id_penyewaan'),
-    'tanggal_bayar'      => date('Y-m-d'),
-    'jumlah_bayar'       => $this->input->post('jumlah_bayar'),
-    'metode_pembayaran'  => $metode,
-    'bukti_transfer'     => $bukti_transfer,
-    'status_pembayaran'  => $status_pembayaran,
-    'status_verifikasi'  => $status_verifikasi
-
-];
-
-        $this->db->insert('pembayaran', $data);
-
-        echo "
-<script>
-alert('Data pembayaran berhasil dikirim');
-window.location='".site_url('customer/dashboard')."';
-</script>
-";
+        show_404();
     }
-    public function riwayat()
-{
-    $data['pembayaran'] = $this->db
-        ->select('pembayaran.*, penyewaan.id_kendaraan')
-        ->from('pembayaran')
-        ->join('penyewaan','penyewaan.id_penyewaan = pembayaran.id_penyewaan')
-        ->order_by('tanggal_bayar','DESC')
-        ->get()
-        ->result();
 
-    $this->load->view('customer/riwayat_pembayaran',$data);
+    $this->load->view('customer/template/header',$data);
+    $this->load->view('customer/template/navbar');
+    $this->load->view('customer/form_pembayaran',$data);
+    $this->load->view('customer/template/footer');
+}
+public function simpan()
+{
+    $metode = $this->input->post('metode_pembayaran');
+
+    $bukti = NULL;
+    $status = '';
+
+    /*
+    |--------------------------------------------------------------------------
+    | Transfer Bank
+    |--------------------------------------------------------------------------
+    */
+    if($metode == 'transfer')
+    {
+        $config['upload_path']   = './assets/uploads/pembayaran/';
+        $config['allowed_types'] = 'jpg|jpeg|png|pdf';
+        $config['encrypt_name']  = TRUE;
+
+        $this->load->library('upload',$config);
+
+        if(!$this->upload->do_upload('bukti'))
+{
+    echo $this->upload->display_errors();
+    die();
 }
 
+        $upload = $this->upload->data();
+
+        $bukti = $upload['file_name'];
+
+        $status = 'menunggu_verifikasi';
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cash
+    |--------------------------------------------------------------------------
+    */
+    else
+    {
+        $status = 'menunggu_pembayaran_tunai';
+    }
+
+    $data = array(
+
+        'transaksi_id' =>
+            $this->input->post('transaksi_id'),
+
+        'metode_pembayaran' =>
+            $metode,
+
+        'tanggal_bayar' =>
+            date('Y-m-d H:i:s'),
+
+        'jumlah_bayar' =>
+            $this->input->post('jumlah_bayar'),
+
+        'bukti_pembayaran' =>
+            $bukti,
+
+        'status' =>
+            $status,
+
+        'created_at' =>
+            date('Y-m-d H:i:s')
+
+    );
+
+    $this->db->insert('pembayaran',$data);
+
+    $this->db
+    ->where('id',$this->input->post('transaksi_id'))
+    ->update('transaksi',[
+        'status' => 'menunggu_pembayaran'
+    ]);
+
+    $this->session->set_flashdata(
+        'success',
+        'Pembayaran berhasil dikirim'
+    );
+
+    redirect('customer/pembayaran');
+}
+    public function index()
+    {
+        $data['title'] = 'Pembayaran';
+
+        $data['transaksi'] =
+            $this->Pembayaran_model
+            ->get_transaksi_user(
+                $this->session->userdata('id_user')
+            );
+
+        $this->load->view('customer/template/header',$data);
+        $this->load->view('customer/template/navbar');
+        $this->load->view('customer/pembayaran',$data);
+        $this->load->view('customer/template/footer');
+        $this->load->view('customer/template/script');
+    }
 }
