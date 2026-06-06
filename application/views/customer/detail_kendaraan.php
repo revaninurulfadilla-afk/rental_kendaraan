@@ -443,7 +443,16 @@
 
                         <p class="d-flex mb-0 d-block">
 
-                            <?php if($r->status == 'tersedia'): ?>
+<?php if($r->status == 'tersedia') : ?>
+
+    <a href="<?= site_url('customer/penyewaan/sewa/'.$r->id) ?>"
+       class="btn btn-primary py-2 mr-1">
+
+        Sewa
+
+    </a>
+
+<?php endif; ?>
 
                                 <a href="<?= site_url('customer/penyewaan/sewa/'.$r->id) ?>"
                                    class="btn btn-primary py-2 mr-1">

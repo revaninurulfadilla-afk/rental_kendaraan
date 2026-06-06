@@ -87,6 +87,9 @@
 		$('.carousel-testimony').owlCarousel({
 			center: true,
 			loop: true,
+			autoplay: true,
+			autoplayTimeout: 2000,
+			autoplayHoverPause: true,
 			items:1,
 			margin: 30,
 			stagePadding: 0,

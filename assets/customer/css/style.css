@@ -9385,7 +9385,8 @@ textarea.form-control {
   display: block;
   position: relative;
   background: white;
-  padding: 0 20px; }
+  padding: 0 20px; 
+  min-height: 380px; }
   .testimony-wrap .user-img {
     width: 100px;
     height: 100px;
