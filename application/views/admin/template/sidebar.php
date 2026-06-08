@@ -45,7 +45,7 @@
     <li class="nav-item">
 
         <a class="nav-link"
-           href="#">
+           href="<?= site_url('admin/supir') ?>">
 
             <i class="fas fa-user-tie"></i>
 
