@@ -36,7 +36,7 @@
                             <th>No HP</th>
                             <th>Total Sewa</th>
                             <th>Status</th>
-                            <th width="120">Aksi</th>
+                            <th width="150">Aksi</th>
                         </tr>
 
                     </thead>
@@ -82,14 +82,12 @@
                                 edit
 
                             </a>
-                            <a href="<?= site_url('pelanggan/hapus/'.$p->id); ?>" 
-                            onclick="return confirm('Yakin?')" 
-                            class="btn btn-danger btn-sm">Hapus</a>
-
-                            
-
-
-
+                            <a href="<?= base_url('index.php/admin/pelanggan/hapus/'.$p->id) ?>"
+                            class="btn btn-danger btn-sm"
+                            onclick="return confirm('Yakin hapus data?')">
+                                Hapus
+                            </a>
+                                 
                         </td>
 
                     </tr>

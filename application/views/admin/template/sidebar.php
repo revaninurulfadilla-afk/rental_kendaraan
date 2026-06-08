@@ -32,7 +32,7 @@
     <li class="nav-item">
 
         <a class="nav-link"
-           href="#">
+           href="<?= site_url('admin/kendaraan'); ?>">
 
             <i class="fas fa-car"></i>
 

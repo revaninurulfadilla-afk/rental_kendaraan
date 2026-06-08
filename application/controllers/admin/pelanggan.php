@@ -152,6 +152,5 @@ public function hapus($id)
 
     redirect('admin/pelanggan');
 }
-}
-   
+
 }

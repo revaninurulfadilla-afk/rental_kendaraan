@@ -56,6 +56,7 @@ class Kendaraan extends CI_Controller
     {
         $this->db->where('kelas', $kelas);
     }
+    
 
     $data['kendaraan'] = $this->db->get()->result();
     $data['pelanggan'] = $this->db
