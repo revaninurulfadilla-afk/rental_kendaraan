@@ -59,7 +59,7 @@
                 <h2 class="mb-2">Daftar Kendaraan Rental</h2>
             </div>
         </div>
-
+        
         <div class="row">
             <div class="col-md-12">
 

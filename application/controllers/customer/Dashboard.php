@@ -48,6 +48,7 @@ class Dashboard extends CI_Controller
 
     $data['kendaraan'] =
         $this->Kendaraan_model->get_all();
+        
 
     $this->load->view('customer/template/header',$data);
     $this->load->view('customer/template/navbar');
