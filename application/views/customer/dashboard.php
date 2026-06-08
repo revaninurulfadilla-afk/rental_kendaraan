@@ -41,8 +41,8 @@
               
 	            </a>
               <a href="#kendaraan" class="btn btn-primary py-3 px-4">
-    Get Started
-</a>
+                Get Started
+              </a>
             </div>
           </div>
         </div>
@@ -50,109 +50,112 @@
     </div>
 
 
-    <section id="kendaraan" class="ftco-section ftco-no-pt bg-light">
-    	<div class="container">
-    		<div class="row justify-content-center">
-          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-          	<span class="subheading">ARMADA KAMI</span>
-<h2 class="mb-2">Daftar Kendaraan Rental</h2>
-          </div>
+<section id="kendaraan" class="ftco-section ftco-no-pt bg-light">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+                <span class="subheading">ARMADA KAMI</span>
+                <h2 class="mb-2">Daftar Kendaraan Rental</h2>
+            </div>
         </div>
-    		<div class="row">
-    			<div class="col-md-12">
-    				<div class="carousel-car owl-carousel">
-    					<?php foreach($kendaraan as $k){ ?>
 
-              <div class="item">
-                  <div class="car-wrap rounded ftco-animate">
+        <div class="row">
+            <div class="col-md-12">
 
-<div class="img rounded d-flex align-items-end"
-                             style="background-image:url('<?= base_url('assets/customer/images/'.$k->foto); ?>');">
-                        </div>
+                <div class="carousel-car owl-carousel">
 
-                        <div class="text">
+                    <?php foreach($kendaraan as $k): ?>
 
-                            <h2 class="mb-0">
+                    <div class="item">
 
-                                <a href="#">
-                                    <?= $k->merk; ?>
-                                </a>
+                        <div class="car-wrap rounded ftco-animate">
 
-                            </h2>
+                            <div class="img rounded d-flex align-items-end"
+                                style="background-image:url('<?= base_url('assets/customer/images/'.$k->foto) ?>');">
+                            </div>
 
-                            <div class="d-flex mb-3">
+                            <div class="text">
 
-                          <span class="cat">
-                              <?= ucfirst($k->status) ?>
-                          </span>
+                                <h2 class="mb-0">
+                                    <a href="#">
+                                        <?= $k->merk ?>
+                                    </a>
+                                </h2>
 
-                                <p class="price ml-auto">
-                                    Rp<?= number_format($k->tarif_hari,0,',','.') ?>
-                                    <span>/hari</span>
+                                <div class="d-flex mb-3">
+
+                                    <span class="cat">
+                                        <?= ucfirst($k->status) ?>
+                                    </span>
+
+                                    <p class="price ml-auto">
+                                        Rp<?= number_format($k->tarif_hari,0,',','.') ?>
+                                        <span>/hari</span>
+                                    </p>
+
+                                </div>
+
+                                <ul class="list-unstyled small mb-3">
+
+                                    <li>
+                                        Per Jam :
+                                        Rp<?= number_format($k->tarif_jam,0,',','.') ?>
+                                    </li>
+
+                                    <li>
+                                        Per Minggu :
+                                        Rp<?= number_format($k->tarif_minggu,0,',','.') ?>
+                                    </li>
+
+                                    <li>
+                                        Per Bulan :
+                                        Rp<?= number_format($k->tarif_bulan,0,',','.') ?>
+                                    </li>
+
+                                </ul>
+
+                                <p class="d-flex mb-0 d-block">
+
+                                    <?php if($k->status == 'tersedia'): ?>
+
+                                        <a href="<?= site_url('customer/penyewaan/sewa/'.$k->id) ?>"
+                                            class="btn btn-primary py-2 mr-1">
+                                            Sewa
+                                        </a>
+
+                                    <?php else: ?>
+
+                                        <button class="btn btn-secondary py-2 mr-1" disabled>
+                                            Sudah Disewa
+                                        </button>
+
+                                    <?php endif; ?>
+
+                                    <a href="<?= site_url('customer/kendaraan/detail/'.$k->id) ?>"
+                                        class="btn btn-secondary py-2 ml-1">
+                                        Detail
+                                    </a>
+
                                 </p>
 
                             </div>
 
-                            <ul class="list-unstyled small">
-
-                                <li>Per Jam :
-                                    Rp<?= number_format($k->tarif_jam,0,',','.') ?>
-                                </li>
-
-                                <li>Per Minggu :
-                                    Rp<?= number_format($k->tarif_minggu,0,',','.') ?>
-                                </li>
-
-                                <li>Per Bulan :
-                                    Rp<?= number_format($k->tarif_bulan,0,',','.') ?>
-                                </li>
-
-                            </ul>
-
-                            <p class="d-flex mb-0 d-block">
-
-                                <?php if($k->status == 'tersedia'): ?>
-
-                                    <a href="<?= site_url('customer/penyewaan/sewa/'.$k->id); ?>"
-                                       class="btn btn-primary py-2 mr-1">
-
-                                        Sewa
-
-                                    </a>
-
-                                <?php else: ?>
-
-                                    <button class="btn btn-secondary py-2 mr-1"
-                                            disabled>
-
-                                        Sudah Disewa
-
-                                    </button>
-
-                                <?php endif; ?>
-
-                                <a href="<?= site_url('customer/kendaraan/detail/'.$k->id); ?>"
-                                   class="btn btn-secondary py-2 ml-1">
-
-                                    Detail
-
-                                </a>
-
-                            </p>
-
                         </div>
 
-                  </div>
-              </div>
+                    </div>
 
-              <?php } ?>
+                    <?php endforeach; ?>
 
-    					
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+    
+    		
 
     <section id="tentang-kami" class="ftco-section ftco-about">
 			<div class="container">

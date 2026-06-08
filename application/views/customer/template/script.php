@@ -36,7 +36,7 @@ $(document).ready(function(){
 
     $('#dataTable').DataTable({
 
-        language: {
+         language: {
 
             search: "Cari:",
 

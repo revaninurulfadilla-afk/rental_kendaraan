@@ -91,6 +91,12 @@
         Batal
     </span>
 
+<?php elseif($t->status == 'ditolak'): ?>
+
+    <span class="badge badge-danger">
+        Ditolak
+    </span>
+
 <?php else: ?>
 
     <span class="badge badge-secondary">

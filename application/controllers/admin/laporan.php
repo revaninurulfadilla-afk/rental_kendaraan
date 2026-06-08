@@ -34,6 +34,12 @@ class Laporan extends CI_Controller
         ->join('kendaraan','kendaraan.id = transaksi.kendaraan_id')
         ->join('users','users.id = transaksi.user_id');
 
+        $this->db->where_not_in('transaksi.status', [
+            'ditolak',
+            'batal',
+            'booking',
+            'menunggu_pembayaran'
+        ]);
     if(!empty($tanggal_awal))
     {
         $this->db->where(
@@ -81,6 +87,13 @@ class Laporan extends CI_Controller
         ->from('transaksi')
         ->join('kendaraan','kendaraan.id = transaksi.kendaraan_id')
         ->join('users','users.id = transaksi.user_id');
+
+        $this->db->where_not_in('transaksi.status', [
+            'ditolak',
+            'batal',
+            'booking',
+            'menunggu_pembayaran'
+        ]);
 
     if($tanggal_awal != '')
     {
