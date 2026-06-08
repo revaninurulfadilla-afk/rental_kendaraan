@@ -58,7 +58,7 @@
     <li class="nav-item">
 
         <a class="nav-link"
-           href="#">
+           href="<?= site_url('admin/pelanggan') ?>" class="nav-link">
 
             <i class="fas fa-users"></i>
 
