@@ -167,20 +167,31 @@
 
     <?php if($kendaraan->status == 'tersedia'): ?>
 
-        <a href="<?= site_url('customer/penyewaan/sewa/'.$kendaraan->id) ?>"
-           class="btn btn-primary">
+    <a href="<?= site_url('customer/penyewaan/sewa/'.$kendaraan->id) ?>"
+       class="btn btn-primary">
 
-            Sewa Sekarang
+        Sewa Sekarang
 
-        </a>
+    </a>
 
-    <?php else: ?>
+<?php elseif($pelanggan->is_pelanggan_lama == 1): ?>
 
-        <button class="btn btn-secondary" disabled>
-            Sedang Disewa
-        </button>
+    <a href="<?= site_url('customer/penyewaan/sewa/'.$kendaraan->id) ?>"
+       class="btn btn-warning">
 
-    <?php endif; ?>
+        Upgrade Tersedia
+
+    </a>
+
+<?php else: ?>
+
+    <button class="btn btn-secondary" disabled>
+
+        Sedang Disewa
+
+    </button>
+
+<?php endif; ?>
 
     <a href="<?= site_url('customer/kendaraan') ?>"
        class="btn btn-outline-dark ml-2">
@@ -411,72 +422,60 @@
 
                         <div class="mb-3 mt-2">
 
-    <span class="badge badge-success">
-        <?= ucfirst($r->status) ?>
-    </span>
+                        <span class="badge badge-success">
+                            <?= ucfirst($r->status) ?>
+                        </span>
 
-</div>
+                    </div>
 
-<ul class="list-unstyled mb-3">
+                    <ul class="list-unstyled mb-3">
 
-    <li>
-        <strong>Per Jam :</strong>
-        Rp<?= number_format($r->tarif_jam,0,',','.') ?>
-    </li>
+                        <li>
+                            <strong>Per Jam :</strong>
+                            Rp<?= number_format($r->tarif_jam,0,',','.') ?>
+                        </li>
 
-    <li>
-        <strong>Per Hari :</strong>
-        Rp<?= number_format($r->tarif_hari,0,',','.') ?>
-    </li>
+                        <li>
+                            <strong>Per Hari :</strong>
+                            Rp<?= number_format($r->tarif_hari,0,',','.') ?>
+                        </li>
 
-    <li>
-        <strong>Per Minggu :</strong>
-        Rp<?= number_format($r->tarif_minggu,0,',','.') ?>
-    </li>
+                        <li>
+                            <strong>Per Minggu :</strong>
+                            Rp<?= number_format($r->tarif_minggu,0,',','.') ?>
+                        </li>
 
-    <li>
-        <strong>Per Bulan :</strong>
-        Rp<?= number_format($r->tarif_bulan,0,',','.') ?>
-    </li>
+                        <li>
+                            <strong>Per Bulan :</strong>
+                            Rp<?= number_format($r->tarif_bulan,0,',','.') ?>
+                        </li>
 
-</ul>
+                    </ul>
+                    <p class="d-flex mb-0 d-block">
 
-                        <p class="d-flex mb-0 d-block">
+    <?php if($r->status == 'tersedia') : ?>
 
-<?php if($r->status == 'tersedia') : ?>
+        <a href="<?= site_url('customer/penyewaan/sewa/'.$r->id) ?>"
+           class="btn btn-primary py-2 mr-1">
+            Sewa
+        </a>
 
-    <a href="<?= site_url('customer/penyewaan/sewa/'.$r->id) ?>"
-       class="btn btn-primary py-2 mr-1">
+    <?php else : ?>
 
-        Sewa
+        <button class="btn btn-secondary py-2 mr-1" disabled>
+            Tidak Tersedia
+        </button>
 
+    <?php endif; ?>
+
+    <a href="<?= site_url('customer/kendaraan/detail/'.$r->id) ?>"
+       class="btn btn-secondary py-2 ml-1">
+        Detail
     </a>
 
-<?php endif; ?>
+</p>
 
-                                <a href="<?= site_url('customer/penyewaan/sewa/'.$r->id) ?>"
-                                   class="btn btn-primary py-2 mr-1">
-
-                                    Sewa
-
-                                </a>
-
-                            <?php else: ?>
-
-                                <button class="btn btn-secondary py-2 mr-1" disabled>
-                                    Tidak Tersedia
-                                </button>
-
-                            <?php endif; ?>
-
-                            <a href="<?= site_url('customer/kendaraan/detail/'.$r->id) ?>"
-                               class="btn btn-secondary py-2 ml-1">
-
-                                Detail
-
-                            </a>
-
-                        </p>
+                                            
 
                     </div>
 

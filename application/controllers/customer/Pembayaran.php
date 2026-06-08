@@ -107,10 +107,25 @@ public function simpan()
 
     $this->db->insert('pembayaran',$data);
 
-    $this->db
+/*
+|--------------------------------------------------------------------------
+| Update Status Transaksi
+|--------------------------------------------------------------------------
+*/
+
+if($metode == 'transfer')
+{
+    $status_transaksi = 'menunggu_verifikasi';
+}
+else
+{
+    $status_transaksi = 'menunggu_pembayaran_tunai';
+}
+
+$this->db
     ->where('id',$this->input->post('transaksi_id'))
     ->update('transaksi',[
-        'status' => 'menunggu_pembayaran'
+        'status' => $status_transaksi
     ]);
 
     $this->session->set_flashdata(

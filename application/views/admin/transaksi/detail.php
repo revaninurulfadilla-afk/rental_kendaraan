@@ -65,35 +65,61 @@
 
                     <br>
 
-                    <?php if($transaksi->status == 'menunggu_pembayaran'): ?>
+                    <?php if($pembayaran): ?>
 
-                        <span class="badge badge-warning p-2">
-                            Menunggu Pembayaran
-                        </span>
+                        <?php if($pembayaran->status == 'menunggu_verifikasi'): ?>
 
-                    <?php elseif($transaksi->status == 'dibayar'): ?>
+                            <span class="badge badge-warning p-2">
+                                Menunggu Verifikasi Transfer
+                            </span>
 
-                        <span class="badge badge-success p-2">
-                            Dibayar
-                        </span>
+                        <?php elseif($pembayaran->status == 'menunggu_pembayaran_tunai'): ?>
 
-                    <?php elseif($transaksi->status == 'berjalan'): ?>
+                            <span class="badge badge-info p-2">
+                                Menunggu Pembayaran Tunai
+                            </span>
 
-                        <span class="badge badge-primary p-2">
-                            Berjalan
-                        </span>
+                        <?php elseif($pembayaran->status == 'dibayar'): ?>
 
-                    <?php elseif($transaksi->status == 'selesai'): ?>
+                            <span class="badge badge-success p-2">
+                                Dibayar
+                            </span>
 
-                        <span class="badge badge-info p-2">
-                            Selesai
-                        </span>
+                        <?php endif; ?>
 
                     <?php else: ?>
 
-                        <span class="badge badge-secondary p-2">
-                            <?= ucfirst($transaksi->status) ?>
-                        </span>
+                        <?php if($transaksi->status == 'menunggu_pembayaran'): ?>
+
+                            <span class="badge badge-warning p-2">
+                                Menunggu Pembayaran
+                            </span>
+
+                        <?php elseif($transaksi->status == 'dibayar'): ?>
+
+                            <span class="badge badge-success p-2">
+                                Dibayar
+                            </span>
+
+                        <?php elseif($transaksi->status == 'berjalan'): ?>
+
+                            <span class="badge badge-primary p-2">
+                                Berjalan
+                            </span>
+
+                        <?php elseif($transaksi->status == 'selesai'): ?>
+
+                            <span class="badge badge-info p-2">
+                                Selesai
+                            </span>
+
+                        <?php else: ?>
+
+                            <span class="badge badge-secondary p-2">
+                                <?= ucfirst($transaksi->status) ?>
+                            </span>
+
+                        <?php endif; ?>
 
                     <?php endif; ?>
 
@@ -107,7 +133,6 @@
 
     <?php if($pembayaran): ?>
 
-    <!-- DATA PEMBAYARAN -->
     <div class="card shadow mt-4">
 
         <div class="card-header bg-primary text-white">
@@ -120,7 +145,7 @@
 
         <div class="card-body text-center">
 
-            <?php if($pembayaran->bukti_pembayaran): ?>
+            <?php if(!empty($pembayaran->bukti_pembayaran)): ?>
 
                 <img src="<?= base_url('assets/uploads/pembayaran/'.$pembayaran->bukti_pembayaran) ?>"
                      class="img-fluid rounded shadow"
@@ -129,7 +154,7 @@
             <?php else: ?>
 
                 <div class="alert alert-info">
-                    Pembayaran Cash
+                    Pembayaran dilakukan secara CASH
                 </div>
 
             <?php endif; ?>
@@ -138,7 +163,11 @@
 
     </div>
 
-    <?php if($pembayaran->status == 'menunggu_verifikasi'): ?>
+    <?php if(
+        $pembayaran->status == 'menunggu_verifikasi'
+        ||
+        $pembayaran->status == 'menunggu_pembayaran_tunai'
+    ): ?>
 
     <div class="card shadow mt-4">
 
@@ -149,26 +178,35 @@
             </h4>
 
             <p class="text-muted">
-                Pastikan bukti transfer sesuai sebelum menyetujui transaksi.
+
+                <?php if($pembayaran->metode_pembayaran == 'transfer'): ?>
+
+                    Pastikan bukti transfer sesuai sebelum menyetujui transaksi.
+
+                <?php else: ?>
+
+                    Pastikan pelanggan telah melakukan pembayaran tunai.
+
+                <?php endif; ?>
+
             </p>
 
             <a href="<?= site_url('admin/transaksi/verifikasi/'.$pembayaran->id) ?>"
-               class="btn btn-success btn-lg">
+           class="btn btn-success btn-lg">
 
-                <i class="fas fa-check"></i>
-                Verifikasi
+            <i class="fas fa-check"></i>
+            Verifikasi
 
-            </a>
+        </a>
 
-            <a href="<?= site_url('admin/transaksi/tolak/'.$pembayaran->id) ?>"
-               class="btn btn-danger btn-lg"
-               onclick="return confirm('Tolak pembayaran ini?')">
+        <a href="<?= site_url('admin/transaksi/tolak/'.$pembayaran->id) ?>"
+           class="btn btn-danger btn-lg"
+           onclick="return confirm('Tolak pembayaran ini?')">
 
-                <i class="fas fa-times"></i>
-                Tolak
+            <i class="fas fa-times"></i>
+            Tolak
 
-            </a>
-
+        </a>
         </div>
 
     </div>

@@ -30,6 +30,7 @@ class Kendaraan extends CI_Controller
 
     public function index()
 {
+
     $data['title'] = 'Daftar Kendaraan';
 
     $keyword = $this->input->get('keyword');
@@ -57,6 +58,10 @@ class Kendaraan extends CI_Controller
     }
 
     $data['kendaraan'] = $this->db->get()->result();
+    $data['pelanggan'] = $this->db
+    ->where('user_id', $this->session->userdata('id_user'))
+    ->get('pelanggan')
+    ->row();
 
     $this->load->view('customer/template/header', $data);
     $this->load->view('customer/template/navbar');
@@ -81,6 +86,10 @@ class Kendaraan extends CI_Controller
 
         $data['kendaraan'] =
             $this->Kendaraan_model->detail($id);
+        $data['pelanggan'] = $this->db
+    ->where('user_id', $this->session->userdata('id_user'))
+    ->get('pelanggan')
+    ->row();
 
         if(!$data['kendaraan'])
         {

@@ -3,25 +3,27 @@
 
     <div class="card shadow">
         <div class="card-header">
-            <h4 class="mb-0">Riwayat Penyewaan</h4>
+            <h2>Riwayat penyewaan</h2>
+            <p>Daftar penyewaan yang telah selesai.</p>
         </div>
 
         <div class="card-body">
 
-            <table class="table table-bordered">
+            <div class="table-responsive">
 
-                <thead>
-                    <tr>
-                        <th>Kode Transaksi</th>
-                        <th>Kendaraan</th>
-                        <th>Tgl Mulai</th>
-                        <th>Tgl Selesai</th>
-                        <th>Total Bayar</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
+<table class="table table-hover align-middle">
 
+    <thead class="thead-dark">
+        <tr>
+            <th>Kode Transaksi</th>
+            <th>Kendaraan</th>
+            <th>Tgl Mulai</th>
+            <th>Tgl Selesai</th>
+            <th>Total Bayar</th>
+            <th>Status</th>
+            <th width="120">Aksi</th>
+        </tr>
+    </thead>
                 <tbody>
 
                 <?php if(!empty($transaksi)) : ?>
@@ -44,52 +46,81 @@
                             <?= date('d-m-Y H:i',strtotime($t->tgl_selesai)) ?>
                         </td>
 
-                        <td>
+                        <td class="font-weight-bold text-primary">
                             Rp<?= number_format($t->total_bayar,0,',','.') ?>
                         </td>
 
-                        <td>
-<?php
-switch($t->status)
-{
-    case 'booking':
-        echo '<span class="badge badge-warning">Booking</span>';
-        break;
 
-    case 'menunggu_verifikasi':
-        echo '<span class="badge badge-info">Menunggu Verifikasi</span>';
-        break;
+<td>
 
-    case 'dibayar':
-        echo '<span class="badge badge-success">Dibayar</span>';
-        break;
+    <?php if($t->status == 'booking') : ?>
 
-    case 'selesai':
-        echo '<span class="badge badge-primary">Selesai</span>';
-        break;
+        <span class="badge badge-warning">
+            Booking
+        </span>
 
-    default:
-        echo $t->status;
-}
-?>
+    <?php elseif($t->status == 'menunggu_verifikasi') : ?>
+
+        <span class="badge badge-info">
+            Menunggu Verifikasi
+        </span>
+
+    <?php elseif($t->status == 'menunggu_pembayaran_tunai') : ?>
+
+        <span class="badge badge-secondary">
+            Menunggu Pembayaran Tunai
+        </span>
+
+    <?php elseif($t->status == 'dibayar') : ?>
+
+        <span class="badge badge-success">
+            Dibayar
+        </span>
+
+    <?php elseif($t->status == 'berjalan') : ?>
+
+        <span class="badge badge-primary">
+            Berjalan
+        </span>
+
+    <?php elseif($t->status == 'pengembalian_diajukan') : ?>
+
+        <span class="badge badge-dark">
+            Pengembalian Diajukan
+        </span>
+
+    <?php elseif($t->status == 'selesai') : ?>
+
+        <span class="badge badge-success">
+            Selesai
+        </span>
+
+    <?php elseif($t->status == 'batal') : ?>
+
+        <span class="badge badge-danger">
+            Batal
+        </span>
+
+    <?php else : ?>
+
+        <span class="badge badge-light">
+            <?= ucfirst(str_replace('_',' ',$t->status)) ?>
+        </span>
+
+    <?php endif; ?>
+
 </td>
+<td>
 
-                        <td>
+    <a href="<?= site_url('customer/riwayat/detail/'.$t->id) ?>"
+       class="btn btn-info btn-sm">
 
-                            <?php if($t->status == 'booking') : ?>
+        <i class="fa fa-eye"></i>
+        Detail
 
-                                <a href="<?= site_url('customer/pembayaran/bayar/'.$t->id) ?>"
-                                   class="btn btn-primary btn-sm">
-                                    Bayar
-                                </a>
+    </a>
 
-                            <?php else : ?>
-
-                                -
-
-                            <?php endif; ?>
-
-                        </td>
+</td>
 
                     </tr>
 

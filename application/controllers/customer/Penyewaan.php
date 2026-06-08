@@ -66,25 +66,25 @@ class Penyewaan extends CI_Controller {
 
         if($kendaraan->status != 'tersedia')
 {
+    // Hanya pelanggan lama yang mendapat upgrade
+    if($pelanggan->is_pelanggan_lama != 1)
+    {
+        $this->session->set_flashdata(
+            'error',
+            'Kendaraan tidak tersedia.'
+        );
+
+        redirect('customer/kendaraan');
+    }
+
     $pengganti = $this->db
         ->where('status','tersedia')
-        ->where('kelas_level >',$kendaraan->kelas_level)
+        ->where('kelas_level >', $kendaraan->kelas_level)
         ->order_by('kelas_level','ASC')
         ->get('kendaraan')
         ->row();
 
-    if($pengganti)
-    {
-        $kendaraan_id = $pengganti->id;
-
-        /*
-        tarif tetap memakai kendaraan yang dipilih customer
-        sesuai studi kasus:
-        kendaraan lebih tinggi,
-        harga tetap sama
-        */
-    }
-    else
+    if(!$pengganti)
     {
         $this->session->set_flashdata(
             'error',
@@ -93,6 +93,14 @@ class Penyewaan extends CI_Controller {
 
         redirect('customer/kendaraan');
     }
+
+    // upgrade kendaraan
+    $kendaraan_id = $pengganti->id;
+
+    $this->session->set_flashdata(
+        'success',
+        'Kendaraan di-upgrade ke '.$pengganti->merk.' '.$pengganti->nama_kendaraan
+    );
 }
 
         $jenis_sewa = $this->input->post('jenis_sewa');
@@ -313,6 +321,7 @@ class Penyewaan extends CI_Controller {
 
         redirect('customer/pembayaran');
     }
+    
     public function index()
 {
     $data['title'] = 'Penyewaan Saya';

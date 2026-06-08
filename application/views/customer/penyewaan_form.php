@@ -24,6 +24,13 @@
 </section>
 
 <section class="ftco-section">
+    <?php if($pelanggan->is_pelanggan_lama == 1): ?>
+
+                        <div class="alert alert-success">
+                            <strong>Selamat!</strong> Anda adalah pelanggan lama dan mendapatkan diskon tambahan 5%.
+                        </div>
+
+                        <?php endif; ?>
     <div class="container">
 
         <div class="row">
@@ -42,6 +49,24 @@
                 Sewa 14 hari → Diskon 10%<br>
                 Sewa 30 hari → Diskon 15%
             </div>
+
+                        <?php if(
+                    $kendaraan->status != 'tersedia'
+                    && isset($pelanggan)
+                    && $pelanggan->is_pelanggan_lama == 1
+                ): ?>
+
+                <div class="alert alert-warning">
+
+                    <strong>Informasi Upgrade Kendaraan</strong><br>
+
+                    Kendaraan yang Anda pilih sedang tidak tersedia.
+                    Jika penyewaan dilanjutkan, sistem akan diberikan kendaraan
+                    dengan kelas lebih tinggi yang tersedia dengan harga yang sama.
+
+                </div>
+
+                <?php endif; ?>
 
                     <div class="card-body">
 
@@ -188,6 +213,7 @@
 
                                 </select>
                             </div>
+
 
                             <?php if($pelanggan->is_pelanggan_lama == 1): ?>
 

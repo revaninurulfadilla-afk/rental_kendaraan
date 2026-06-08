@@ -61,46 +61,45 @@
 
                         <td>
 
-                            <?php if($t->status == 'menunggu_pembayaran'): ?>
+<?php if($t->status == 'menunggu_pembayaran'): ?>
 
-                                <span class="badge badge-warning">
-                                    Menunggu Pembayaran
-                                </span>
+    <span class="badge badge-warning">
+        Menunggu Pembayaran
+    </span>
 
-                            <?php elseif($t->status == 'dibayar'): ?>
+<?php elseif($t->status == 'dibayar'): ?>
 
-                                <span class="badge badge-success">
-                                    Dibayar
-                                </span>
+    <span class="badge badge-success">
+        Dibayar
+    </span>
 
-                            <?php elseif($t->status == 'berjalan'): ?>
+<?php elseif($t->status == 'berjalan'): ?>
 
-                                <span class="badge badge-primary">
-                                    Berjalan
-                                </span>
+    <span class="badge badge-primary">
+        Berjalan
+    </span>
 
-                            <?php elseif($t->status == 'selesai'): ?>
+<?php elseif($t->status == 'selesai'): ?>
 
-                                <span class="badge badge-info">
-                                    Selesai
-                                </span>
+    <span class="badge badge-info">
+        Selesai
+    </span>
 
-                            <?php elseif($t->status == 'batal'): ?>
+<?php elseif($t->status == 'batal'): ?>
 
-                                <span class="badge badge-danger">
-                                    Batal
-                                </span>
+    <span class="badge badge-danger">
+        Batal
+    </span>
 
-                            <?php else: ?>
+<?php else: ?>
 
-                                <span class="badge badge-secondary">
-                                    <?= ucfirst($t->status) ?>
-                                </span>
+    <span class="badge badge-secondary">
+        <?= ucfirst($t->status) ?>
+    </span>
 
-                            <?php endif; ?>
+<?php endif; ?>
 
-                        </td>
-
+</td>
                         <td>
 
                             <a href="<?= site_url('admin/transaksi/detail/'.$t->id) ?>"

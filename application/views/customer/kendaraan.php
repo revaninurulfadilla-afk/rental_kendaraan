@@ -75,45 +75,104 @@
 <section class="ftco-section bg-light">
 
 <!-- FILTER -->
-<form method="get" action="<?= base_url('index.php/customer/kendaraan') ?>">
-    <div class="row mb-5">
+<section class="ftco-section bg-light pt-4">
 
-        <div class="col-md-4">
-            <input type="text"
-       name="keyword"
-       class="form-control"
-       placeholder="Cari kendaraan..."
-       value="<?= $this->input->get('keyword') ?>">
-        </div>
+<div class="container">
 
-        <div class="col-md-3">
-            <select name="jenis" class="form-control">
-    <option value="">Semua Jenis</option>
-    <option value="Sedan" <?= ($this->input->get('jenis')=='Sedan')?'selected':'' ?>>Sedan</option>
-    <option value="MPV" <?= ($this->input->get('jenis')=='MPV')?'selected':'' ?>>MPV</option>
-    <option value="SUV" <?= ($this->input->get('jenis')=='SUV')?'selected':'' ?>>SUV</option>
-    <option value="Minibus" <?= ($this->input->get('jenis')=='Minibus')?'selected':'' ?>>Minibus</option>
-</select>
-        </div>
+    <div class="card shadow border-0 mb-5">
 
-        <div class="col-md-3">
-            <select name="kelas" class="form-control">
-                <option value="">Semua Kelas</option>
-                <option value="Ekonomi">Ekonomi</option>
-                <option value="Menengah">Menengah</option>
-                <option value="Premium">Premium</option>
-            </select>
-        </div>
+        <div class="card-body">
 
-        <div class="col-md-2">
-            <button type="submit" class="btn btn-primary btn-block">
-                Cari
-            </button>
+            <form method="get"
+                  action="<?= base_url('index.php/customer/kendaraan') ?>">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+
+                        <input type="text"
+                               name="keyword"
+                               class="form-control"
+                               placeholder="Cari kendaraan..."
+                               value="<?= $this->input->get('keyword') ?>">
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <select name="jenis" class="form-control">
+
+                            <option value="">Semua Jenis</option>
+
+                            <option value="Sedan"
+                                <?= ($this->input->get('jenis')=='Sedan')?'selected':'' ?>>
+                                Sedan
+                            </option>
+
+                            <option value="MPV"
+                                <?= ($this->input->get('jenis')=='MPV')?'selected':'' ?>>
+                                MPV
+                            </option>
+
+                            <option value="SUV"
+                                <?= ($this->input->get('jenis')=='SUV')?'selected':'' ?>>
+                                SUV
+                            </option>
+
+                            <option value="Minibus"
+                                <?= ($this->input->get('jenis')=='Minibus')?'selected':'' ?>>
+                                Minibus
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <select name="kelas" class="form-control">
+
+                            <option value="">Semua Kelas</option>
+
+                            <option value="Ekonomi"
+                                <?= ($this->input->get('kelas')=='Ekonomi')?'selected':'' ?>>
+                                Ekonomi
+                            </option>
+
+                            <option value="Menengah"
+                                <?= ($this->input->get('kelas')=='Menengah')?'selected':'' ?>>
+                                Menengah
+                            </option>
+
+                            <option value="Premium"
+                                <?= ($this->input->get('kelas')=='Premium')?'selected':'' ?>>
+                                Premium
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-2">
+
+                        <button type="submit"
+                                class="btn btn-primary btn-block">
+
+                            Cari
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
         </div>
 
     </div>
-</form>
 
+    <div class="row">
     <div class="container">
 
         <div class="row">
@@ -171,32 +230,32 @@
 
                             <p class="d-flex mb-0 d-block">
 
-                                <?php if($k->status == 'tersedia'): ?>
+                            <?php if($k->status == 'tersedia'): ?>
 
-                                    <a href="<?= site_url('customer/penyewaan/sewa/'.$k->id); ?>"
-                                       class="btn btn-primary py-2 mr-1">
-
-                                        Sewa
-
-                                    </a>
-
-                                <?php else: ?>
-
-                                    <button class="btn btn-secondary py-2 mr-1"
-                                            disabled>
-
-                                        Sudah Disewa
-
-                                    </button>
-
-                                <?php endif; ?>
-
-                                <a href="<?= site_url('customer/kendaraan/detail/'.$k->id); ?>"
-                                   class="btn btn-secondary py-2 ml-1">
-
-                                    Detail
-
+                                <a href="<?= site_url('customer/penyewaan/sewa/'.$k->id) ?>"
+                                class="btn btn-primary py-2 mr-1">
+                                    Sewa
                                 </a>
+
+                            <?php elseif($pelanggan && $pelanggan->is_pelanggan_lama == 1): ?>
+
+                                <a href="<?= site_url('customer/penyewaan/sewa/'.$k->id) ?>"
+                                class="btn btn-warning py-2 mr-1">
+                                    Upgrade Tersedia
+                                </a>
+
+                            <?php else: ?>
+
+                                <button class="btn btn-secondary py-2 mr-1" disabled>
+                                    Sudah Disewa
+                                </button>
+
+                            <?php endif; ?>
+
+                            <a href="<?= site_url('customer/kendaraan/detail/'.$k->id) ?>"
+                            class="btn btn-secondary py-2 ml-1">
+                                Detail
+                            </a>
 
                             </p>
 
