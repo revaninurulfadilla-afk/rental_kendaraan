@@ -85,6 +85,12 @@
                                 Dibayar
                             </span>
 
+                        <?php elseif($pembayaran->status == 'ditolak'): ?>
+
+                            <span class="badge badge-danger p-2">
+                                Ditolak
+                            </span>
+
                         <?php endif; ?>
 
                     <?php else: ?>

@@ -231,7 +231,7 @@
                                 </li>
 
                             </ul>
-
+                            
                             <p class="d-flex mb-0 d-block">
 
                             <?php if($k->status == 'tersedia'): ?>

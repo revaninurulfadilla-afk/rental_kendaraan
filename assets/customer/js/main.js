@@ -63,11 +63,16 @@
    $.Scrollax();
 
 	var carousel = function() {
+
+		if ($('.carousel-car').hasClass('owl-loaded')) {
+        return;
+    	}
+
 		$('.carousel-car').owlCarousel({
-			center: true,
-			loop: true,
-			autoplay: true,
-			items:1,
+			center: false,
+			loop: false,
+			autoplay: false,
+			
 			margin: 30,
 			stagePadding: 0,
 			nav: false,
@@ -87,9 +92,6 @@
 		$('.carousel-testimony').owlCarousel({
 			center: true,
 			loop: true,
-			autoplay: true,
-			autoplayTimeout: 2000,
-			autoplayHoverPause: true,
 			items:1,
 			margin: 30,
 			stagePadding: 0,

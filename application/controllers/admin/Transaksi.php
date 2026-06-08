@@ -78,6 +78,43 @@ public function verifikasi($id)
 
     redirect('admin/transaksi/detail/'.$pembayaran->transaksi_id);
 }
+public function tolak($id)
+{
+    $pembayaran = $this->db
+        ->where('id',$id)
+        ->get('pembayaran')
+        ->row();
+
+    if(!$pembayaran)
+    {
+        show_404();
+    }
+
+    $transaksi = $this->db
+        ->where('id',$pembayaran->transaksi_id)
+        ->get('transaksi')
+        ->row();
+
+    $this->db
+        ->where('id',$id)
+        ->update('pembayaran',[
+            'status'=>'ditolak'
+        ]);
+
+    $this->db
+        ->where('id',$pembayaran->transaksi_id)
+        ->update('transaksi',[
+            'status'=>'ditolak'
+        ]);
+
+    $this->db
+        ->where('id',$transaksi->kendaraan_id)
+        ->update('kendaraan',[
+            'status'=>'tersedia'
+        ]);
+
+    redirect('admin/transaksi/detail/'.$pembayaran->transaksi_id);
+}
     public function index()
     {
         $data['title'] = 'Data Transaksi';

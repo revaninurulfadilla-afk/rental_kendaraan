@@ -38,9 +38,17 @@ class Dashboard extends CI_Controller
     $data['total_sewa'] = $this->db
         ->where('user_id',$user_id)
         ->count_all_results('transaksi');
+    $data['kendaraan'] = $this->db->query("
+        SELECT *
+        FROM kendaraan
+        GROUP BY merk
+        ORDER BY id DESC
+    ")->result();
+
 
     $data['kendaraan'] =
         $this->Kendaraan_model->get_all();
+        
 
     $this->load->view('customer/template/header',$data);
     $this->load->view('customer/template/navbar');

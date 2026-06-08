@@ -3749,8 +3749,8 @@ input[type="button"].btn-block {
 
 .navbar-dark .navbar-nav .show > .nav-link,
 .navbar-dark .navbar-nav .active > .nav-link,
-.navbar-dark .show,
-.navbar-dark .active {
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
   color: #fff; }
 
 .navbar-dark .navbar-toggler {
@@ -9385,8 +9385,7 @@ textarea.form-control {
   display: block;
   position: relative;
   background: white;
-  padding: 0 20px; 
-  min-height: 380px; }
+  padding: 0 20px; }
   .testimony-wrap .user-img {
     width: 100px;
     height: 100px;
