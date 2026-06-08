@@ -104,14 +104,13 @@
                         $t->status == 'berjalan'
                     ): ?>
 
-                    <a href="<?= site_url('customer/pengembalian/ajukan/'.$t->id) ?>"
-                       class="btn btn-warning btn-block mt-3"
-                       onclick="return confirm('Ajukan pengembalian kendaraan ini?')">
+                    <a href="<?= site_url('customer/pengembalian/form/'.$t->id) ?>"
+                        class="btn btn-warning btn-block mt-3">
 
-                        <i class="fa fa-undo"></i>
-                        Ajukan Pengembalian
+                            <i class="fa fa-undo"></i>
+                            Ajukan Pengembalian
 
-                    </a>
+                        </a>
 
                     <?php elseif($t->status == 'pengembalian_diajukan'): ?>
 

@@ -17,72 +17,96 @@ class Pengembalian extends CI_Controller
     }
 
     // List semua pengembalian
-    public function index()
-    {
-        $data['title'] = 'Data Pengembalian';
+   public function index()
+{
+$data['title'] = 'Data Pengembalian';
 
-        $data['pengembalian'] = $this->db
-            ->select('
-                pengembalian.*,
-                transaksi.kode_transaksi,
-                transaksi.total_bayar,
-                transaksi.tgl_mulai,
-                transaksi.tgl_selesai,
-                kendaraan.merk,
-                kendaraan.nama_kendaraan,
-                users.nama
-            ')
-            ->from('pengembalian')
-            ->join('transaksi','transaksi.id=pengembalian.transaksi_id')
-            ->join('kendaraan','kendaraan.id=transaksi.kendaraan_id')
-            ->join('pelanggan','pelanggan.id=transaksi.pelanggan_id')
-            ->join('users','users.id=pelanggan.user_id')
-            ->order_by('pengembalian.id','DESC')
-            ->get()
-            ->result();
+$data['pengembalian'] = $this->db
+    ->select('
+        pengembalian.*,
+        transaksi.kode_transaksi,
+        transaksi.total_bayar,
+        transaksi.tgl_mulai,
+        transaksi.tgl_selesai,
+        kendaraan.merk,
+        kendaraan.nama_kendaraan,
+        users.nama
+    ')
+    ->from('pengembalian')
+    ->join(
+        'transaksi',
+        'transaksi.id = pengembalian.transaksi_id'
+    )
+    ->join(
+        'kendaraan',
+        'kendaraan.id = transaksi.kendaraan_id'
+    )
+    ->join(
+        'users',
+        'users.id = transaksi.user_id',
+        'left'
+    )
+    ->order_by('pengembalian.id','DESC')
+    ->get()
+    ->result();
 
-        $this->load->view('admin/template/header',$data);
-        $this->load->view('admin/template/sidebar');
-        $this->load->view('admin/template/topbar');
-        $this->load->view('admin/pengembalian/index',$data);
-        $this->load->view('admin/template/footer');
-    }
+$this->load->view('admin/template/header',$data);
+$this->load->view('admin/template/sidebar');
+$this->load->view('admin/template/topbar');
+$this->load->view('admin/pengembalian/index',$data);
+$this->load->view('admin/template/footer');
+
+}
 
     // Detail pengembalian
     public function detail($id)
+{
+    $data['title'] = 'Detail Pengembalian';
+
+    $data['pengembalian'] = $this->db
+        ->select('
+            pengembalian.*,
+            transaksi.kode_transaksi,
+            transaksi.tgl_mulai,
+            transaksi.tgl_selesai,
+            transaksi.total_bayar,
+            kendaraan.merk,
+            kendaraan.nama_kendaraan,
+            users.nama
+        ')
+        ->from('pengembalian')
+        ->join(
+            'transaksi',
+            'transaksi.id = pengembalian.transaksi_id'
+        )
+        ->join(
+            'kendaraan',
+            'kendaraan.id = transaksi.kendaraan_id'
+        )
+        ->join(
+            'pelanggan',
+            'pelanggan.id = transaksi.pelanggan_id'
+        )
+        ->join(
+            'users',
+            'users.id = pelanggan.user_id'
+        )
+        ->where('pengembalian.id', $id)
+        ->get()
+        ->row();
+
+    if(!$data['pengembalian'])
     {
-        $data['title'] = 'Detail Pengembalian';
-
-        $data['pengembalian'] = $this->db
-            ->select('
-                pengembalian.*,
-                transaksi.kode_transaksi,
-                transaksi.total_bayar,
-                transaksi.tgl_mulai,
-                transaksi.tgl_selesai,
-                kendaraan.merk,
-                kendaraan.nama_kendaraan,
-                users.nama
-            ')
-            ->from('pengembalian')
-            ->join('transaksi','transaksi.id=pengembalian.transaksi_id')
-            ->join('kendaraan','kendaraan.id=transaksi.kendaraan_id')
-            ->join('pelanggan','pelanggan.id=transaksi.pelanggan_id')
-            ->join('users','users.id=pelanggan.user_id')
-            ->where('pengembalian.id',$id)
-            ->get()
-            ->row();
-
-        if(!$data['pengembalian']){
-            show_404();
-        }
-
-        $this->load->view('admin/template/header',$data);
-        $this->load->view('admin/template/sidebar');
-        $this->load->view('admin/template/topbar');
-        $this->load->view('admin/pengembalian/detail',$data);
-        $this->load->view('admin/template/footer');
+        show_404();
     }
+
+    $this->load->view('admin/template/header',$data);
+    $this->load->view('admin/template/sidebar');
+    $this->load->view('admin/template/topbar');
+    $this->load->view('admin/pengembalian/detail',$data);
+    $this->load->view('admin/template/footer');
+}
+
 
     // Proses pengembalian dari status "diajukan" ke selesai
     public function proses($id_pengembalian)
