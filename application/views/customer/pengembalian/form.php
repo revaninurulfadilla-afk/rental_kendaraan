@@ -8,11 +8,6 @@
 
         <div class="card-body">
 
-        <pre>
-<?= $transaksi->tgl_selesai ?>
-<?= $transaksi->denda_per_jam ?>
-</pre>
-
             <form method="post"
                   enctype="multipart/form-data"
                   action="<?= site_url('customer/pengembalian/simpan/'.$transaksi->id) ?>">
@@ -50,17 +45,6 @@
     <span id="denda">Rp0</span>
 
 </div>
-
-                <div class="form-group">
-
-                    <label>Foto Kendaraan</label>
-
-                    <input type="file"
-                           name="foto_kendaraan"
-                           class="form-control"
-                           required>
-
-                </div>
 
                 <div class="form-group">
 

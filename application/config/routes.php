@@ -69,3 +69,5 @@ $route['admin/dashboard'] = 'admin/dashboard';
 $route['customer/dashboard'] = 'customer/dashboard';
 
 $route['admin/profil'] = 'admin/profil';
+
+$config['upload_path'] = './assets/customer/images';

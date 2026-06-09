@@ -51,15 +51,37 @@
                 <?= $pengembalian->terlambat_jam ?> Jam
             </p>
 
-            <p>
-                <strong>Denda :</strong>
-                Rp<?= number_format($pengembalian->denda,0,',','.') ?>
-            </p>
+           <p>
+    <strong>Denda :</strong>
+    Rp<?= number_format($pengembalian->denda,0,',','.') ?>
+</p>
 
-            <p>
-                <strong>Keterangan :</strong>
-                <?= $pengembalian->keterangan ?>
-            </p>
+<p>
+    <strong>Keterangan :</strong>
+    <?= $pengembalian->keterangan ?>
+</p>
+
+<hr>
+<br>
+
+<?php if($pengembalian->status != 'selesai'): ?>
+
+<a href="<?= site_url('admin/pengembalian/proses/'.$pengembalian->id) ?>"
+   class="btn btn-success"
+   onclick="return confirm('Proses pengembalian ini?')">
+
+    <i class="fas fa-check"></i>
+    Proses Pengembalian
+
+</a>
+
+<?php else: ?>
+
+<button class="btn btn-secondary" disabled>
+    Sudah Diproses
+</button>
+
+<?php endif; ?>
 
         </div>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2026 at 04:18 AM
+-- Generation Time: Jun 09, 2026 at 03:52 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -55,13 +55,21 @@ CREATE TABLE `kendaraan` (
 --
 
 INSERT INTO `kendaraan` (`id`, `kode_kendaraan`, `merk`, `nama_kendaraan`, `jenis`, `kelas`, `tahun`, `no_polisi`, `warna`, `tarif_jam`, `tarif_hari`, `tarif_minggu`, `tarif_bulan`, `denda_per_jam`, `status`, `foto`, `deskripsi`, `created_at`, `kelas_level`) VALUES
-(1, 'KD001', 'Toyota', 'Avanza', 'MPV', 'Menengah', 2023, 'B 1234 ABC', 'Hitam', '25000.00', '300000.00', '1800000.00', '6500000.00', '10000.00', 'tersedia', 'car-2.jpg', NULL, '2026-06-06 13:51:35', 2),
+(1, 'KD001', 'Toyota', 'Avanza', 'MPV', 'Menengah', 2023, 'B 1234 ABC', 'Hitam', '25000.00', '300000.00', '1800000.00', '6500000.00', '10000.00', 'disewa', 'car-2.jpg', NULL, '2026-06-06 13:51:35', 2),
 (2, 'KD002', 'Honda', 'Brio', 'Sedan', 'Ekonomi', 2022, 'B 5678 XYZ', 'Putih', '20000.00', '250000.00', '1500000.00', '5500000.00', '10000.00', 'disewa', 'car-11.jpg', 'Honda Brio 2022, kondisi prima, hemat bahan bakar dan nyaman digunakan untuk perjalanan dalam maupun luar kota.', '2026-06-06 14:06:14', 1),
 (3, 'KD006', 'Toyota', 'Avanza', 'MPV', 'Ekonomi', 2022, 'B 1234 AVZ', 'Putih', '25000.00', '300000.00', '1800000.00', '6500000.00', '25000.00', 'disewa', 'car-12.jpg', 'Toyota Avanza 2022 kapasitas 7 penumpang', '2026-06-06 19:38:03', 1),
-(4, 'KD007', 'Honda', 'Brio', 'MPV', 'Ekonomi', 2023, 'B 2234 BRI', 'Abu-Abu', '20000.00', '250000.00', '1500000.00', '5500000.00', '20000.00', 'tersedia', 'car-11.jpg', 'Honda Brio hemat bahan bakar', '2026-06-06 19:38:03', 1),
+(4, 'KD007', 'Honda', 'Brio', 'MPV', 'Ekonomi', 2023, 'B 2234 BRI', 'Abu-Abu', '20000.00', '250000.00', '1500000.00', '5500000.00', '20000.00', 'disewa', 'car-11.jpg', 'Honda Brio hemat bahan bakar', '2026-06-06 19:38:03', 1),
 (5, 'KD008', 'BMW', '320i', 'Sedan', 'Premium', 2024, 'B 3234 BMW', 'Biru', '60000.00', '850000.00', '5000000.00', '18000000.00', '50000.00', 'tersedia', 'car-5.jpg', 'BMW 320i sedan premium', '2026-06-06 19:38:03', 3),
 (6, 'KD009', 'Mercedes Benz', 'C200', 'Sedan', 'Premium', 2024, 'B 4234 MBZ', 'Abu Silver', '65000.00', '900000.00', '5500000.00', '20000000.00', '50000.00', 'disewa', 'car-7.jpg', 'Mercedes Benz C200 luxury sedan', '2026-06-06 19:38:03', 3),
-(7, 'KD010', 'Jeep', 'Wrangler', 'Minibus', 'Menengah', 2023, 'B 5234 JEP', 'Merah', '45000.00', '600000.00', '3500000.00', '12000000.00', '40000.00', 'tersedia', 'car-8.jpg', 'Jeep Wrangler untuk wisata dan offroad', '2026-06-06 19:38:03', 2);
+(7, 'KD010', 'Jeep', 'Wrangler', 'Minibus', 'Menengah', 2023, 'B 5233 JEP', 'Merah', '45000.00', '600000.00', '3500000.00', '12000000.00', '40000.00', 'disewa', 'car-8.jpg', 'Jeep Wrangler untuk wisata dan offroad', '2026-06-06 19:38:03', 2),
+(8, 'KD011', 'toyota', 'hiace', 'Minibus', 'Premium', 2019, 'B 2234 MBS', 'silver', '30000.00', '720000.00', '5040000.00', '21600000.00', '10000.00', 'tersedia', '5353c10f853a7b421b4a8b0ab996a4ba.jpg', 'muat banyak , lega pokonya mah......', '2026-06-08 08:19:24', 3),
+(9, 'KD012', 'Toyota', 'Fortuner', 'MPV', 'Luxury', 2024, 'KH1245AA', 'Hitam', '100000.00', '1200000.00', '7200000.00', '25000000.00', '10000.00', 'tersedia', 'images.jpg', 'SUV premium', NULL, 1),
+(10, 'KD013', 'Mitsubishi', 'Pajero Sport', 'MPV', 'Luxury', 2024, 'KH1246AA', 'Putih', '100000.00', '1200000.00', '7200000.00', '25000000.00', '10000.00', 'tersedia', 'car-13.jpg', 'SUV premium', NULL, 1),
+(11, 'KD014', 'Honda', 'Civic RS', 'Sedan', 'Luxury', 2024, 'KH1247AA', 'Merah', '90000.00', '1000000.00', '6000000.00', '22000000.00', '10000.00', 'tersedia', 'car-14.jpg', 'Sedan sporty', NULL, 1),
+(12, 'KD015', 'Toyota', 'Camry', 'Sedan', 'Luxury', 2024, 'KH1248AA', 'Hitam', '95000.00', '1100000.00', '6500000.00', '23000000.00', '10000.00', 'tersedia', 'car-15.png', 'Sedan executive', NULL, 1),
+(13, 'KD016', 'Suzuki', 'APV', 'Minibus', 'Ekonomi', 2023, 'KH1249AA', 'Silver', '40000.00', '450000.00', '2700000.00', '9000000.00', '10000.00', 'tersedia', 'car-16.jpg', 'Minibus keluarga', NULL, 1),
+(15, 'KD018', 'Daihatsu', 'Gran Max Box', 'Box', 'Niaga', 2023, 'KH1251AA', 'Hitam', '45000.00', '500000.00', '3000000.00', '10000000.00', '10000.00', 'tersedia', 'car-17.jpg', 'Mobil box ringan', NULL, 1),
+(16, 'KD019', 'Hino', 'Dutro Box', 'Box', 'Niaga', 2024, 'KH1252AA', 'Putih', '70000.00', '800000.00', '4800000.00', '16000000.00', '10000.00', 'tersedia', 'car-18.jpg', 'Mobil box besar', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -84,7 +92,8 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`id`, `user_id`, `nik`, `alamat`, `telepon`, `jumlah_transaksi`, `is_pelanggan_lama`) VALUES
-(1, 3, '36321974832', 'tangerang', '084327463524', 0, 0);
+(1, 3, '36321974832', 'tangerang', '084327463524', 0, 1),
+(2, 4, '3214327483275', 'tangerang', '08423543543', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -110,7 +119,12 @@ CREATE TABLE `pembayaran` (
 INSERT INTO `pembayaran` (`id`, `transaksi_id`, `metode_pembayaran`, `tanggal_bayar`, `jumlah_bayar`, `bukti_pembayaran`, `status`, `created_at`) VALUES
 (10, 13, 'cash', '2026-06-07 15:43:28', '75000.00', NULL, '', '2026-06-07 15:43:28'),
 (11, 14, 'cash', '2026-06-08 03:40:07', '60000.00', NULL, '', '2026-06-08 03:40:07'),
-(12, 15, 'transfer', '2026-06-08 03:44:13', '360000.00', '3dfc9fef67ab30083d4327e61e3b34aa.jpg', 'menunggu_verifikasi', '2026-06-08 03:44:13');
+(12, 15, 'transfer', '2026-06-08 03:44:13', '360000.00', '3dfc9fef67ab30083d4327e61e3b34aa.jpg', 'menunggu_verifikasi', '2026-06-08 03:44:13'),
+(13, 16, 'cash', '2026-06-08 18:13:34', '180000.00', NULL, '', '2026-06-08 18:13:34'),
+(14, 17, 'cash', '2026-06-08 18:38:32', '100000.00', NULL, '', '2026-06-08 18:38:32'),
+(15, 18, 'cash', '2026-06-08 18:41:17', '72000.00', NULL, '', '2026-06-08 18:41:17'),
+(16, 19, 'cash', '2026-06-09 02:44:35', '158000.00', NULL, '', '2026-06-09 02:44:35'),
+(17, 20, 'cash', '2026-06-09 02:57:47', '2160000.00', NULL, '', '2026-06-09 02:57:47');
 
 -- --------------------------------------------------------
 
@@ -126,15 +140,20 @@ CREATE TABLE `pengembalian` (
   `denda` decimal(12,2) DEFAULT '0.00',
   `keterangan` text,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `status` enum('diajukan','selesai') DEFAULT 'diajukan'
+  `status` enum('diajukan','selesai') DEFAULT 'diajukan',
+  `foto_kendaraan` varchar(255) DEFAULT NULL,
+  `terlambat` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pengembalian`
 --
 
-INSERT INTO `pengembalian` (`id`, `transaksi_id`, `tanggal_pengembalian`, `terlambat_jam`, `denda`, `keterangan`, `created_at`, `status`) VALUES
-(1, 13, '2026-06-08 03:41:54', 5, '50000.00', 'Pengembalian selesai', '2026-06-08 03:41:12', 'diajukan');
+INSERT INTO `pengembalian` (`id`, `transaksi_id`, `tanggal_pengembalian`, `terlambat_jam`, `denda`, `keterangan`, `created_at`, `status`, `foto_kendaraan`, `terlambat`) VALUES
+(1, 13, '2026-06-08 03:41:54', 5, '50000.00', 'Pengembalian selesai', '2026-06-08 03:41:12', 'diajukan', NULL, 0),
+(2, 16, '2026-06-08 19:23:17', 55, '550000.00', 'Pengembalian selesai', '2026-06-08 18:15:01', 'diajukan', '', 0),
+(3, 17, '2026-06-07 23:00:00', 2, '20000.00', 'pengembalian', '2026-06-08 18:40:08', 'diajukan', '', 0),
+(4, 19, '2026-06-09 02:58:32', 0, '0.00', 'Pengembalian selesai', '2026-06-09 02:46:23', 'diajukan', '', 0);
 
 -- --------------------------------------------------------
 
@@ -156,7 +175,10 @@ CREATE TABLE `supir` (
 --
 
 INSERT INTO `supir` (`id`, `nama`, `telepon`, `alamat`, `sim`, `status`) VALUES
-(1, 'bayu', '08432432441', 'jakarta', '213143564655764', 'tersedia');
+(1, 'Bayu', '08432432441', 'Jakarta', '213143564655764', 'tersedia'),
+(2, 'Akhdan', '0895772593', 'Jatiuwung', '213143564655766', 'tersedia'),
+(3, 'Halim', '082007965245', 'Curug', '213143564655767', 'tersedia'),
+(4, 'Kresna', '087659821', 'Karawaci', '213143564655768', 'tersedia');
 
 -- --------------------------------------------------------
 
@@ -194,7 +216,12 @@ CREATE TABLE `transaksi` (
 INSERT INTO `transaksi` (`id`, `kode_transaksi`, `user_id`, `pelanggan_id`, `kendaraan_id`, `supir_id`, `jenis_sewa`, `lama_sewa`, `tgl_mulai`, `tgl_selesai`, `tujuan`, `ambil_kendaraan`, `biaya_sewa`, `biaya_antar`, `biaya_luar_kota`, `total_bayar`, `status`, `created_at`, `diskon_persen`, `potongan`) VALUES
 (13, 'TRX20260607154317', 3, 1, 1, NULL, 'jam', 3, '2026-06-07 20:42:00', '2026-06-07 22:42:00', 'dalam_kota', 'ambil_sendiri', '75000.00', '0.00', '0.00', '75000.00', 'selesai', '2026-06-07 15:43:17', 0, '0.00'),
 (14, 'TRX20260608033958', 3, 1, 2, NULL, 'jam', 3, '2026-06-08 09:00:00', '2026-06-08 11:00:00', 'dalam_kota', 'ambil_sendiri', '60000.00', '0.00', '0.00', '60000.00', 'dibayar', '2026-06-08 03:39:58', 0, '0.00'),
-(15, 'TRX20260608034359', 3, 1, 3, NULL, 'hari', 1, '2026-06-08 10:00:00', '2026-06-09 10:00:00', 'luar_kota', 'ambil_sendiri', '300000.00', '0.00', '60000.00', '360000.00', '', '2026-06-08 03:43:59', 0, '0.00');
+(15, 'TRX20260608034359', 3, 1, 3, NULL, 'hari', 1, '2026-06-08 10:00:00', '2026-06-09 10:00:00', 'luar_kota', 'ambil_sendiri', '300000.00', '0.00', '60000.00', '360000.00', '', '2026-06-08 03:43:59', 0, '0.00'),
+(16, 'TRX20260608181329', 3, 1, 5, NULL, 'jam', 3, '2026-06-06 23:12:00', '2026-06-06 13:13:00', 'dalam_kota', 'ambil_sendiri', '180000.00', '0.00', '0.00', '180000.00', 'selesai', '2026-06-08 18:13:29', 0, '0.00'),
+(17, 'TRX20260608183824', 3, 1, 1, NULL, 'jam', 4, '2026-06-07 06:00:00', '2026-06-07 21:00:00', 'dalam_kota', 'ambil_sendiri', '100000.00', '0.00', '0.00', '100000.00', '', '2026-06-08 18:38:24', 0, '0.00'),
+(18, 'TRX20260608184110', 3, 1, 4, NULL, 'jam', 3, '2026-06-07 07:00:00', '2026-06-07 10:00:00', 'luar_kota', 'ambil_sendiri', '60000.00', '0.00', '12000.00', '72000.00', 'dibayar', '2026-06-08 18:41:10', 0, '0.00'),
+(19, 'TRX20260609024427', 3, 1, 8, NULL, 'jam', 3, '2026-06-09 08:00:00', '2026-06-09 10:00:00', 'luar_kota', 'diantar', '90000.00', '50000.00', '18000.00', '158000.00', 'selesai', '2026-06-09 02:44:27', 0, '0.00'),
+(20, 'TRX20260609025742', 3, 1, 7, NULL, 'hari', 3, '2026-06-06 07:57:00', '2026-06-08 07:57:00', 'luar_kota', 'ambil_sendiri', '1800000.00', '0.00', '360000.00', '2160000.00', 'dibayar', '2026-06-09 02:57:42', 0, '0.00');
 
 -- --------------------------------------------------------
 
@@ -217,8 +244,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nama`, `email`, `password`, `role`, `status`, `created_at`) VALUES
-(2, 'Administrator', 'admin@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 'aktif', '2026-06-06 03:32:03'),
-(3, 'revani', 'revani@gmail.com', '$2y$10$6/ese1Ty0fbwDGqoeGBpTO0j9qmcx.sAla9qYJv/2l02WHE4XZ/Hm', 'customer', 'aktif', '2026-06-05 22:45:47');
+(2, 'Administratorr', 'admin@gmail.com', '$2y$10$fA/mMnD0qBGmOdcpAmpgy./qVG3ku.cSsRl4FSyG033uqgLjzv6o.', 'admin', 'aktif', '2026-06-06 03:32:03'),
+(3, 'revani', 'revani@gmail.com', '$2y$10$6/ese1Ty0fbwDGqoeGBpTO0j9qmcx.sAla9qYJv/2l02WHE4XZ/Hm', 'customer', 'aktif', '2026-06-05 22:45:47'),
+(4, 'marsyanda', 'rara@gmail.com', '$2y$10$THZwjvhVDGwRG.6UB3s6zuL7kvh62BAmVAS2BKVR8WpgeaxnhOmGW', 'customer', 'aktif', '2026-06-08 18:07:30');
 
 --
 -- Indexes for dumped tables
@@ -281,43 +309,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `kendaraan`
 --
 ALTER TABLE `kendaraan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `supir`
 --
 ALTER TABLE `supir`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

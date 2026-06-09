@@ -217,37 +217,6 @@ public function simpan($id)
             $terlambat_jam *
             $kendaraan->denda_per_jam;
     }
-
-    // Upload foto
-    $foto = '';
-
-    if(!empty($_FILES['foto_kendaraan']['name']))
-    {
-        $config['upload_path'] =
-            './assets/customer/pengembalian/';
-
-        $config['allowed_types'] =
-            'jpg|jpeg|png';
-
-        $config['encrypt_name'] = TRUE;
-
-        $this->load->library(
-            'upload',
-            $config
-        );
-
-        if(
-            $this->upload->do_upload(
-                'foto_kendaraan'
-            )
-        )
-        {
-            $foto =
-                $this->upload
-                ->data('file_name');
-        }
-    }
-
     // Simpan pengembalian
     $this->db->insert('pengembalian',[
         'transaksi_id' => $id,
