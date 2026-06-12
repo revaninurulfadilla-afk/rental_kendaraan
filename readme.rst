@@ -82,7 +82,7 @@ Selesai
 
 👨‍💻 Pengembang: 
 
-- **Reva Nia Nurulfadilla**
+- **Revani Nurul Fadilla**
 - **Marsyanda Rara Agustia**
 - **Silvy Khovifah**
 
