@@ -1,25 +1,25 @@
-# 🚗 Rental Kendaraan
+🚗 Rental Kendaraan
 
 Sistem **Rental Kendaraan** berbasis web yang dikembangkan untuk memudahkan proses penyewaan kendaraan secara digital. Aplikasi ini membantu pelanggan dalam melakukan pemesanan kendaraan dan memudahkan administrator dalam mengelola data kendaraan, pelanggan, serta transaksi penyewaan secara terpusat.
 
 ---
 
-## 📌 Tentang Proyek
+📌 Tentang Proyek
 
 Rental Kendaraan merupakan aplikasi yang dirancang untuk meningkatkan efisiensi pengelolaan layanan penyewaan kendaraan. Sistem menyediakan informasi kendaraan yang tersedia, pengelolaan data pelanggan, serta pencatatan transaksi rental secara terintegrasi.
 
 ---
 
-## ✨ Fitur Utama
+✨ Fitur Utama
 
-### 👤 Pelanggan
+👤 Pelanggan
 - Registrasi dan Login
 - Melihat daftar kendaraan
 - Melihat detail kendaraan
 - Melakukan pemesanan kendaraan
 - Melihat status dan riwayat penyewaan
 
-### 🛠️ Administrator
+🛠️ Administrator
 - Dashboard Admin
 - Manajemen Data Kendaraan
 - Manajemen Data Pelanggan
@@ -29,7 +29,7 @@ Rental Kendaraan merupakan aplikasi yang dirancang untuk meningkatkan efisiensi 
 
 ---
 
-## 🎯 Tujuan Sistem
+🎯 Tujuan Sistem
 
 - Mempermudah proses penyewaan kendaraan.
 - Mengelola data kendaraan secara terstruktur.
@@ -38,21 +38,27 @@ Rental Kendaraan merupakan aplikasi yang dirancang untuk meningkatkan efisiensi 
 
 ---
 
-## 📂 Modul Sistem
+📂 Modul Sistem
 
-| Modul | Deskripsi |
-|---------|------------|
-| Kendaraan | Mengelola data kendaraan yang tersedia |
-| Pelanggan | Mengelola data pengguna dan pelanggan |
-| Rental | Mengelola proses pemesanan dan penyewaan |
-| Transaksi | Mencatat dan memantau transaksi rental |
-| Laporan | Menyajikan data penyewaan dalam bentuk laporan |
+🚗 Kendaraan
+Mengelola data kendaraan yang tersedia untuk disewa.
+
+👤 Pelanggan
+Mengelola data pengguna dan pelanggan.
+
+📝 Rental
+Mengelola proses pemesanan dan penyewaan kendaraan.
+
+💳 Transaksi
+Mencatat dan memantau seluruh transaksi rental.
+
+📊 Laporan
+Menyajikan data penyewaan dalam bentuk laporan.
 
 ---
 
-## 🔄 Alur Sistem
+🔄 Alur Sistem
 
-```text
 Pelanggan
     │
     ▼
@@ -72,18 +78,16 @@ Konfirmasi Penyewaan
     │
     ▼
 Selesai
-```
 
----
 
-## 👨‍💻 Pengembang
+👨‍💻 Pengembang: 
 
 - **Reva Nia Nurulfadilla**
 - **Marsyanda Rara Agustia**
 - **Silvy Khovifah**
 
----
+
 
 ## 📄 Lisensi
 
-Proyek ini dibuat untuk tujuan pembelajaran, pengembangan sistem informasi, dan portofolio akademik.
+Proyek ini dibuat untuk keperluan akademik sebagai pemenuhan tugas Ujian Akhir Semester (UAS).
