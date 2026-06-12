@@ -151,6 +151,25 @@ public function hapus($id)
         ->delete('pelanggan');
 
     redirect('admin/pelanggan');
+
+}
+public function cetak()
+{
+    $data['laporan'] = $this->db
+        ->select('
+            transaksi.*,
+            kendaraan.merk,
+            kendaraan.nama_kendaraan,
+            users.nama
+        ')
+        ->from('transaksi')
+        ->join('kendaraan','kendaraan.id=transaksi.kendaraan_id')
+        ->join('users','users.id=transaksi.user_id')
+        ->order_by('transaksi.id','DESC')
+        ->get()
+        ->result();
+
+    $this->load->view('admin/laporan/cetak',$data);
 }
 
 }
